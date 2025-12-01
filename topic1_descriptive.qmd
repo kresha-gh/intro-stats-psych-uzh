@@ -3,9 +3,12 @@ title: "Descriptive Statistics"
 format:
   html:
     toc: true
+    toc-location: left
     toc-depth: 3
     code-fold: false
     code-tools: false
+    number-sections: false
+    smooth-scroll: true
 execute:
   echo: false
   warning: false
@@ -13,22 +16,30 @@ execute:
 ---
 
 <style>
+
+/* Reveal animation */
 .reveal {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(12px);
   animation: fadeInUp 0.6s ease forwards;
 }
 @keyframes fadeInUp {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Wider content area */
+.quarto-content {
+  max-width: 1200px;
+}
+
+/* Card layout refinement */
 .card-block {
   border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 35px;
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 40px;
   background: #ffffff;
-  box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.06);
 }
 
 .card-block h3 {
@@ -36,15 +47,22 @@ execute:
   font-weight: 600;
 }
 
+/* Centered images */
 .centered-image {
   text-align: center;
   margin-top: 20px;
 }
 .centered-image img {
-  max-width: 80%;
-  border-radius: 10px;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+  max-width: 85%;
+  border-radius: 12px;
+  box-shadow: 0px 2px 12px rgba(0,0,0,0.15);
 }
+
+/* Prevent title overflow */
+h1, h2, h3 {
+  word-break: keep-all;
+}
+
 </style>
 
 ::: {.panel-tabset}
@@ -53,366 +71,286 @@ execute:
 
 <div class="reveal">
 
-### 1. Why psychologists need descriptive statistics
+# Introduction: Why We Begin With Descriptive Statistics
 
-Imagine you run your very first study:  
-120 students fill in an anxiety questionnaire before an important exam.  
-You download the data, open the file – and suddenly you are staring at a long
-list of numbers.
+Whenever you collect data — questionnaire responses, reaction times, ratings of emotion, stress scores, memory accuracy — the raw numbers rarely speak for themselves. A column of values may contain important information, but without structure it is impossible to know what story the data tell.
 
-On its own, this list does not tell you much. You cannot immediately see
+Descriptive statistics provide that first layer of structure.  
+They help you understand **what the numbers mean** before you attempt any interpretation or run any formal test. If you think of statistical analysis as building a house, descriptive statistics are the foundation. Without them, the entire building becomes unstable.
 
-- how anxious the *average* student feels,  
-- whether there are big differences between students,  
-- whether anxiety is mostly low with a few very anxious students,  
-- or whether students in a “high-stress” group are actually more anxious.
-
-Descriptive statistics are the tools that turn this raw list of numbers into a
-clear picture. They help you **summarise**, **organise**, and **describe** the
-data so you can understand what is going on in your sample.
-
-Before we talk about hypotheses, p-values, or effect sizes, we always start
-here: with a careful descriptive look at the data. If the descriptive picture
-is wrong or unclear, all later conclusions become shaky.
-
-You can think of descriptive statistics as the **“language” your data speaks**.
-Learning this language is one of the core skills of a psychologist who works
-with empirical findings.
+When students first enter psychology, they often imagine statistics as formulas or tests. But real statistical thinking begins earlier: with the ability to summarise, describe, and interpret data in everyday language. You learn to look at numbers and see patterns, not noise. This skill is essential — not only for future topics like regression, correlation, or ANOVA, but for scientific reasoning more broadly.
 
 ---
 
-### 2. From individual cases to an overview
+# Why Psychologists Depend on Descriptive Statistics
 
-Psychological data almost always come from many individuals:  
-students, patients, couples, families, therapy groups.
+People differ in countless ways: how strongly they react to stress, how quickly they form memories, how empathic they are, how often they worry, how well they sleep. Because psychological characteristics vary so widely, researchers must describe this variation carefully and responsibly.
+
+Descriptive statistics answer questions such as:
+
+- *What is the typical value in the sample?*  
+- *How much do individuals differ from each other?*  
+- *Are most values clustered together or spread out?*  
+- *Are there unusually high or low values?*  
+- *Do two groups show meaningful differences before running any test?*  
+
+These are not trivial questions. They determine whether the data you collected make sense, whether they match your expectations, whether your measurement worked properly, and whether it is appropriate to proceed to the next analytical step.
+
+Good researchers always begin with descriptive statistics because this initial understanding ensures responsible interpretation later on. If you skip this step, you risk basing your conclusions on misunderstandings — for example, assuming a group is more anxious when in fact the difference is driven by a single extreme participant.
+
+---
+
+# Understanding Levels of Measurement: The Foundation for Everything Else
+
+Before you summarise a variable, you must understand **what kind of variable it is**.  
+This is not a technical detail — it determines which statistics are meaningful and which would be misleading or even wrong.
+
+Think of it this way:  
+you cannot treat colours, temperature, and reaction times as if they were the same kind of information. Different data types support different operations.
+
+We distinguish four levels of measurement: **nominal, ordinal, interval, and ratio**. Below, each is explained in depth, with psychological examples.
+
+---
+
+## Nominal Level  
+Nominal variables contain **categories that have no inherent order** — they simply label groups.
+
+Examples include:  
+
+- therapy type (CBT, ACT, psychodynamic)  
+- coping style categories  
+- handedness  
+- type of emotion being expressed (anger, joy, fear)  
+- diagnosis categories  
+
+These categories tell us *which group* someone belongs to, not *how much* of something they have.
+
+### What summaries make sense?  
+We can meaningfully compute:
+
+- counts (“How many people responded with each option?”)  
+- proportions (“What percentage chose each category?”)
+
+### What is *not* meaningful?  
+An **average** would be meaningless because averaging categories implies numerical distance where none exists.
+
+If three participants prefer “CBT,” “ACT,” and “psychodynamic,” the “average” of these three labels has no psychological interpretation.  
+There is no quantity we can interpolate between “CBT” and “ACT.”  
+A category is a name, not a number.
+
+This is why nominal data are never summarised with means, medians, or SDs. They do not represent numerical magnitude.
+
+---
+
+## Ordinal Level  
+Ordinal variables represent **ordered categories**, but the spacing between categories is not guaranteed to be equal.
+
+Examples:  
+
+- Likert ratings (1 = strongly disagree to 5 = strongly agree)  
+- symptom severity (“mild,” “moderate,” “severe”)  
+- ranking tasks (“1st”, “2nd”, “3rd”)  
+- perceived stress levels on a 3-point scale  
+
+These variables tell us *relative order* — who has more or less of something — but they do **not guarantee equal distance** between levels.
+
+A jump from “moderate” to “severe” does not necessarily equal the jump from “mild” to “moderate.”  
+Similarly, the psychological distance between “agree” and “strongly agree” might not match the distance between “neutral” and “agree.”
+
+### What summaries make sense?  
+
+- medians  
+- percentiles  
+- rank-based statistics  
+- ordered bar charts  
+
+### What about means?  
+Psychologists often report means for Likert scales, but this is a matter of convention rather than strict mathematics.  
+The mean can be used **if** you interpret it cautiously and understand its limitations.
+
+---
+
+## Interval Level  
+Interval variables have:
+
+1. **equal spacing between units**, and  
+2. **no true zero**.
+
+A classical example is temperature measured in Celsius or Fahrenheit.
+
+In some psychological contexts, variables behave *approximately* interval-like, even if not perfectly:  
+for instance, a 0–100 scale measuring subjective well-being, where each point is designed to represent an equal step.
+
+Because spacing is assumed to be equal, we can compute:
+
+- means  
+- standard deviations  
+- correlations  
+- z-scores  
+
+### Why does “no true zero” matter?  
+Because without a true zero, ratios become meaningless.  
+For example, 20°C is not “twice as warm” as 10°C — the zero point is arbitrary.
+
+Thus, interval data support many operations, but not ratio statements.
+
+---
+
+## Ratio Level  
+Ratio variables are the most informative type. They have:
+1. equal spacing, and  
+2. a **meaningful zero** that represents the total absence of the quantity.
+
+Examples include:  
+
+- reaction time (0 ms means no time elapsed)  
+- number of correct answers  
+- hours slept  
+- anxiety symptoms counted on a 0–40 scale  
+
+Because zero means “none,” ratios become meaningful:
+
+- A reaction time of 600 ms is twice as long as 300 ms.  
+- A score of 20 symptoms represents twice the number of symptoms as a score of 10.
+
+Ratio variables allow all descriptive measures:
+
+- mean  
+- median  
+- SD  
+- IQR  
+- correlations  
+- ratios  
+- comparisons of magnitude  
+
+This is why many psychological measurements aim, when possible, to approximate a ratio scale.
+
+---
+
+# Central Tendency: Describing the “Typical” Score
+
+Every distribution has a central point where most values cluster. Understanding this “centre” helps answer questions like:
+
+- What is a normal level of stress in this group?  
+- What is a typical reaction time for this task?  
+- What is the usual score on a well-being questionnaire?
+
+We use three main measures: **mean, median, and mode**.
+
+### The Mean  
+The mean is what people often call “the average.”  
+It adds all values and divides by the number of observations.
+
+It uses *all* information in the dataset, which makes it powerful — but also vulnerable.
+
+If one individual reports an extremely high stress score, the mean shifts noticeably.  
+This makes the mean **sensitive to outliers**.
+
+### The Median  
+The median is the middle value once data are ordered.  
+Half the values lie below it and half above.
+
+It is robust against outliers.  
+If you add one extremely high value, the median remains nearly unchanged.
+
+This often makes the median more informative for skewed psychological variables such as stress, rumination, sadness, or reaction times.
+
+### The Mode  
+The mode is the most common value.
+
+Useful when:
+
+- categories are involved,  
+- a distribution has multiple peaks,  
+- or you want to identify the most frequent response.
+
+---
+
+# Variability: How Much People Differ
+
+Understanding the centre is not enough.  
+Two groups might have the same typical value but differ dramatically in how spread out their scores are.
+
+Variability tells you:
+
+- whether people are similar or diverse,  
+- whether a questionnaire captures wide differences,  
+- whether groups are consistent or mixed.
+
+### Range  
+Max minus min.  
+Simple but heavily distorted by outliers.
+
+### Interquartile Range (IQR)  
+Captures the spread of the **middle 50%**.  
+Resistant to extreme scores.
+
+### Standard Deviation (SD)  
+Shows the average distance of each value from the mean.  
+If SD is small → participants are similar.  
+If SD is large → a lot of diversity.
+
+SD is crucial in psychology because it helps describe how strongly people differ in the very traits we study.
+
+---
+
+# Shape of a Distribution: The Story Behind the Numbers
+
+The centre and variability are just two elements.  
+The *shape* of the distribution completes the picture.
+
+A distribution can be:
+
+- **symmetric**  
+- **right-skewed** (a few very high values)  
+- **left-skewed** (a few very low values)  
+- **bimodal**  
+- **flat**  
+
+Each shape reflects a different psychological process.
 
 For example:
 
-- 120 students’ anxiety scores (0–40)  
-- 80 patients’ depression scores before and after therapy  
-- 200 people’s hours of sleep per night  
-- 60 participants’ reaction times in a decision task  
+- A right-skewed distribution of worry levels suggests that while most individuals worry moderately, a minority worry intensely.  
+- A bimodal distribution of reaction times may hint that participants used two different strategies.
 
-Looking at each person one by one is impossible. Instead, we ask questions at
-the *group level*:
-
-- What is a **typical** anxiety score in this group?  
-- How much do scores **vary** between people?  
-- Are extreme values present – e.g., extremely high depression scores?  
-- How does one group (e.g., low vs. high stress) **compare** to another?
-
-Descriptive statistics provide answers by compressing many numbers into a few
-meaningful summaries.
+Interpreting shapes makes you a better thinker because you learn to see patterns rather than focusing solely on numbers.
 
 ---
 
-### 3. Variables and levels of measurement
+# Comparing Groups Descriptively
 
-Before summarising anything, we must understand **what kind of variable** we are
-dealing with. Different variables allow different kinds of questions and
-statistics.
+Much of psychology involves comparing groups:  
+people in different conditions, treatments, environments, or roles.
 
-#### Nominal variables – categories without order
+Descriptive comparisons help you see:
 
-Nominal variables place people into categories with **no natural ranking**.
+- whether one group tends to score higher or lower,  
+- whether variability differs,  
+- whether one group shows more extreme or unusual values,  
+- and whether group differences look meaningful even before testing.
 
-Examples in psychology:
-
-- handedness: left / right  
-- therapy type: CBT / ACT / psychodynamic / none  
-- favourite social media platform  
-
-For nominal variables we can meaningfully talk about:
-
-- **how many** people are in each category  
-- **which** category is most common  
-
-We cannot meaningfully compute a mean or a median of “therapy types”.
-
-#### Ordinal variables – ordered categories
-
-Ordinal variables have categories that can be ordered, but we do not know how
-big the steps between categories are.
-
-Examples:
-
-- symptom severity: “none, mild, moderate, severe”  
-- agreement with a statement: 1 = “strongly disagree” to 5 = “strongly agree”  
-- satisfaction with therapy: “not at all” to “very much”
-
-Here we can say:
-
-- A score of 4 means **more** of something than a score of 2.  
-- But we do not know if the difference between 1 and 2 is the same size as the
-  difference between 4 and 5.
-
-For ordinal data, medians and percentiles are often more appropriate than means,
-because they respect the order without assuming equal distances.
-
-#### Interval variables – equal steps, no true zero
-
-Interval variables have equal units, but zero does **not** mean “nothing”.
-
-The classic example is temperature in °C:  
-The difference between 10°C and 20°C is the same as between 20°C and 30°C, but
-0°C does not mean “no temperature”.
-
-In psychology we rarely have pure interval variables, but many scales are *treated*
-as if they were at least approximately interval. This is one reason why we often
-compute means and standard deviations for questionnaire scores.
-
-#### Ratio variables – equal steps and a meaningful zero
-
-For ratio variables, zero truly means “none of the quantity”.
-
-Examples:
-
-- reaction time in milliseconds (0 ms = no time)  
-- number of mistakes in a memory test (0 errors = perfect performance)  
-- hours of sleep per night (0 hours = did not sleep)  
-- anxiety scores from 0 to 40, where 0 means no reported anxiety symptoms
-
-Most continuous psychological variables are at least approximately ratio. For
-ratio variables we can use all the familiar tools: means, SDs, ratios (“twice
-as fast”), correlations, and so on.
+These descriptive insights guide hypotheses, interpretation, and responsible scientific reasoning.
 
 ---
 
-### 4. Describing distributions: not just one number
+# Why All of This Matters for Your Future in Statistics
 
-Each variable in your dataset has a **distribution**: it shows how often
-different values occur.
+Descriptive statistics may seem simple at first glance, but they are deeply foundational.  
+Every later topic — probability, confidence intervals, regression, ANOVA, correlation — relies on concepts introduced here.
 
-For example, if you plot the frequency of anxiety scores from 0 to 40, you
-might see:
+If you understand:
 
-- many students around 18–22 points,  
-- fewer students with very low or very high anxiety,  
-- perhaps a single very anxious student around 35.
+- types of variables,  
+- measures of centre,  
+- measures of variability,  
+- distribution shapes,  
+- group differences,
 
-This shape matters. Two variables can have the same mean but very different
-distributions. Knowing the distribution helps you decide:
+then the rest of statistics becomes far less intimidating.
 
-- which summary statistics are appropriate,  
-- whether the data meet assumptions for later methods,  
-- whether a few extreme values are driving the results.
-
-In descriptive statistics, we often describe distributions in words:
-
-> “Anxiety scores were roughly symmetric and centred around 20, with most
-> students scoring between 15 and 25. Only a few students reported very low or
-> very high anxiety.”
-
-Being able to write such sentences clearly is a core skill for psychological
-reporting.
-
----
-
-### 5. Central tendency: describing the “typical” value
-
-We now turn to measures of **central tendency** — numbers that describe where
-the centre of a distribution lies.
-
-#### Mean – the arithmetic average
-
-The mean is what many people call the “average”:  
-add all scores and divide by the number of scores.
-
-In our anxiety example, a mean of 20 would mean that, on average, students
-reported moderate anxiety.
-
-Strengths:
-
-- uses all information in the data  
-- widely used in research articles and statistics
-
-Weakness:
-
-- very sensitive to **outliers**.  
-  If one student has a score of 40, the mean moves upwards, even if everyone
-  else has moderate anxiety.
-
-Because of this sensitivity, the mean works best for distributions that are
-not extremely skewed and do not contain extreme outliers.
-
-#### Median – the middle observation
-
-The median is the value that splits the distribution in half:  
-50% of scores are below, 50% are above.
-
-If the median anxiety score is 19, half of the students have anxiety 19 or
-lower, and half have 19 or higher.
-
-Strengths:
-
-- robust to extreme values (one very anxious student does not change the median
-  much)  
-- works well for skewed or ordinal data
-
-Weakness:
-
-- less sensitive to subtle changes in the whole distribution
-
-#### Mode – the most frequent value
-
-The mode is the value that occurs most often.
-
-This is especially useful for **categorical** variables:
-
-- “CBT” might be the modal therapy type  
-- “Instagram” might be the most frequent social media platform
-
-For continuous variables, the mode is less often reported in psychology.
-
-#### Comparing mean and median
-
-The relationship between mean and median already tells us something about the
-distribution:
-
-- mean ≈ median → distribution is roughly symmetric  
-- mean > median → distribution is right-skewed (few very high scores)  
-- mean < median → distribution is left-skewed (few very low scores)
-
-When writing about your data, you can integrate this information:
-
-> “The mean and median anxiety scores were very similar (20.1 vs. 20.0),
-> suggesting a roughly symmetric distribution without strong skewness.”
-
----
-
-### 6. Variability: how different are people from each other?
-
-Knowing the centre is important, but in psychology **differences between
-individuals** are often just as interesting. Do people cluster tightly around
-the mean, or are they spread out?
-
-#### Range – simplest but fragile
-
-The range is the difference between the largest and smallest observed value.
-
-For anxiety from 6 to 33 points, the range is 27.
-
-Problem: it depends only on two observations and is extremely sensitive to
-outliers. One unusual person can change the range completely.
-
-#### Interquartile range (IQR) – spread of the middle 50%
-
-To get a more robust measure, we look at the middle 50% of the data:
-
-- the 25th percentile (Q1) – where 25% of scores are below  
-- the 75th percentile (Q3) – where 75% of scores are below  
-
-The IQR is Q3 − Q1.
-
-If Q1 = 16 and Q3 = 23, then IQR = 7.  
-This means that the middle half of students have anxiety between 16 and 23.
-
-IQR is robust and works well even when a few extreme values exist.
-
-#### Standard deviation (SD) – typical deviation from the mean
-
-The standard deviation is the most widely used measure of variability in
-psychology. Conceptually:
-
-- it tells you how far, on average, individual scores are from the mean.  
-
-If the mean anxiety score is 20 and SD is 5, a typical student is about 5 points
-away from the mean. Many students will fall in the range 15–25.
-
-A larger SD means more variability:  
-students differ more strongly from one another.
-
-In research reports you often see sentences like:
-
-> “Anxiety scores were moderate, *M* = 20.1, *SD* = 5.3.”
-
-Here, *M* is the mean and *SD* is the standard deviation.
-
----
-
-### 7. Putting descriptives into words
-
-A huge part of statistical skill is the ability to translate numbers into clear,
-accurate sentences. Consider the following example summary:
-
-> “On a 0–40 scale, students reported moderate anxiety  
-> (*M* = 20.1, *SD* = 5.4, *Mdn* = 20, IQR = 6.5).  
-> Scores ranged from 6 to 33.  
-> The similarity of mean and median suggests little skewness.”
-
-This short paragraph answers four important questions:
-
-1. **Level**: Are scores low, moderate, or high?  
-2. **Variability**: Do students differ a lot in anxiety?  
-3. **Extremes**: What are the lowest and highest scores?  
-4. **Shape**: Is the distribution fairly symmetric?
-
-In your own assignments, aim to write at this level of clarity:  
-no unnecessary technical details, but precise enough that another reader can
-picture the distribution.
-
----
-
-### 8. Describing and comparing groups
-
-In psychological research we often compare groups:
-
-- treatment vs. control  
-- low vs. high stress  
-- younger vs. older adults  
-
-Descriptive statistics are the first step before any formal test.
-
-Suppose our two groups have:
-
-- Low-stress: mean anxiety 20.5, SD 5.6  
-- High-stress: mean anxiety 19.6, SD 5.0  
-
-At first glance, the means are very similar. If we saw this in a table or
-boxplot, we might write:
-
-> “Anxiety levels were similar in the low- and high-stress groups  
-> (means around 20, SDs around 5), suggesting no strong descriptive group
-> difference.”
-
-This does **not** yet answer the inferential question “Are the groups
-significantly different?” – that comes later with t-tests or ANOVAs. But it
-already tells us that any difference we find later is unlikely to be dramatic.
-
-Good practice in psychology:
-
-1. First, **describe** both groups (means, medians, SDs, IQRs, sample sizes).  
-2. Then, and only then, move on to hypothesis tests.  
-
----
-
-### 9. Descriptive statistics as the base of everything that follows
-
-Later in your studies you will encounter many statistical methods:
-
-- correlations and regression  
-- t-tests and ANOVAs  
-- confidence intervals and effect sizes  
-- structural equation models and multilevel models  
-
-All of them rely on the same basic ideas:
-
-- what is typical in the data,  
-- how much variability exists,  
-- how the distribution is shaped,  
-- and how groups or variables relate descriptively.
-
-If you build a strong intuition for descriptive statistics now, every later
-method will make much more sense. You will be better able to:
-
-- spot unusual or impossible values in a dataset,  
-- judge whether model assumptions are realistic,  
-- read tables and figures in research articles,  
-- and communicate your own findings clearly in reports and theses.
-
-Descriptive statistics are not a boring “first chapter to survive”.  
-They are the **core toolkit** you will repeatedly use as a psychologist who
-works with data.
+Descriptive statistics teach you how to **read data**, not just compute numbers.  
+They train the interpretative skills that every psychologist needs — from designing better studies to understanding your own findings.
 
 </div>
 
@@ -420,110 +358,283 @@ works with data.
 
 ## Practice
 
-### Simulating Example Data  
-<div class="card-block reveal">
+<div class="reveal">
 
-To make this topic concrete, we simulate data from **120 psychology students**
-completing a **0–40 anxiety scale**, together with a **stress group** (low vs.
-high). This simulated dataset is used in all visualisations and tables below.
+### Simulated Study: Exam Anxiety in First-Year Students
+
+To connect theory with practical application, we will work with one realistic, simulated dataset. Imagine a study where **160 first-year university students** complete a short questionnaire one week before an important exam.
+
+For each student we record:
+
+- **id** – anonymous participant number  
+- **group** – whether the student reports *low* or *high* stress about the upcoming exam (nominal)  
+- **gender** – three self-reported categories (nominal)  
+- **exam_anxiety** – a 0–40 score measuring exam-related anxiety (ratio)  
+- **sleep_hours** – average nightly sleep during the week before the exam (ratio)  
+- **satisfaction** – a 1–5 rating of satisfaction with their study situation (ordinal)
+
+The following code simulates this dataset exactly once and prepares all tables and graphs used in this section.
 
 ```{r}
+#| include: false
+
 library(dplyr)
-library(ggplot2)
-library(plotly)
-library(gt)
 library(tibble)
+library(ggplot2)
+library(DT)
+library(plotly)
+library(knitr)
 
-if (!dir.exists("data")) dir.create("data")
-file_path <- "data/topic1_descriptive.csv"
+set.seed(42)
 
-if (!file.exists(file_path)) {
-    set.seed(123)
-    dat <- tibble(
-        id = 1:120,
-        anxiety_score = round(rnorm(120, mean = 20, sd = 6)),
-        group = sample(c("Low stress", "High stress"), 120, replace = TRUE)
-    ) |> mutate(anxiety_score = pmin(pmax(anxiety_score, 0), 40))
-    write.csv(dat, file_path, row.names = FALSE)
-}
-dat <- read.csv(file_path)
+n <- 160
 
-overall <- dat |>
-    summarise(
-        Mean = mean(anxiety_score),
-        SD = sd(anxiety_score),
-        Median = median(anxiety_score),
-        IQR = IQR(anxiety_score),
-        Min = min(anxiety_score),
-        Max = max(anxiety_score)
+dat <- tibble(
+    id = 1:n,
+    group = sample(c("Low stress", "High stress"),
+        size = n, replace = TRUE, prob = c(0.55, 0.45)
+    ),
+    gender = sample(c("Woman", "Man", "Diverse"),
+        size = n, replace = TRUE, prob = c(0.6, 0.35, 0.05)
+    )
+)
+
+dat <- dat |>
+    mutate(
+        sleep_hours = rnorm(
+            n(),
+            mean = ifelse(group == "High stress", 6.2, 7.1),
+            sd   = 1.1
+        ),
+        sleep_hours = pmin(pmax(sleep_hours, 3), 10)
+    )
+
+dat <- dat |>
+    mutate(
+        exam_anxiety = rnorm(
+            n(),
+            mean = ifelse(group == "High stress", 24, 18),
+            sd   = 5
+        ),
+        exam_anxiety = round(pmin(pmax(exam_anxiety, 0), 40))
+    )
+
+z_anx <- scale(dat$exam_anxiety)[, 1]
+dat <- dat |>
+    mutate(
+        satisfaction_latent = 4.2 - 0.6 * z_anx + rnorm(n(), 0, 0.5),
+        satisfaction = round(pmin(pmax(satisfaction_latent, 1), 5))
     ) |>
-    gt()
+    select(-satisfaction_latent)
 
-by_group <- dat |>
+# Frequencies
+tab_group <- dat |>
+    count(group, name = "n") |>
+    mutate(prop = round(100 * n / sum(n), 1))
+
+tab_gender <- dat |>
+    count(gender, name = "n") |>
+    mutate(prop = round(100 * n / sum(n), 1))
+
+tab_satisfaction <- dat |>
+    count(satisfaction, name = "n") |>
+    mutate(prop = round(100 * n / sum(n), 1))
+
+# Descriptives
+overall_exam <- dat |>
+    summarise(
+        n = n(),
+        mean = mean(exam_anxiety),
+        median = median(exam_anxiety),
+        sd = sd(exam_anxiety),
+        IQR = IQR(exam_anxiety),
+        min = min(exam_anxiety),
+        max = max(exam_anxiety)
+    )
+
+exam_by_group <- dat |>
     group_by(group) |>
     summarise(
-        Mean = mean(anxiety_score),
-        SD = sd(anxiety_score),
-        Median = median(anxiety_score),
-        IQR = IQR(anxiety_score)
-    ) |>
-    gt()
+        n = n(),
+        mean = mean(exam_anxiety),
+        median = median(exam_anxiety),
+        sd = sd(exam_anxiety),
+        IQR = IQR(exam_anxiety),
+        .groups = "drop"
+    )
 
-hist_plot <- ggplot(dat, aes(x = anxiety_score)) +
-    geom_histogram(bins = 12, fill = "#FF9F1C", color = "white") +
+# Plots
+p_hist_exam <- ggplot(dat, aes(x = exam_anxiety)) +
+    geom_histogram(
+        bins = 12,
+        color = "white",
+        fill = "#f39c12"
+    ) +
+    labs(
+        title = "Distribution of Exam Anxiety Scores",
+        x = "Exam anxiety score (0–40)",
+        y = "Count"
+    ) +
+    theme_minimal(base_size = 14)
+
+p_box_exam <- ggplot(dat, aes(x = group, y = exam_anxiety, fill = group)) +
+    geom_boxplot(alpha = 0.85, width = 0.6) +
+    scale_fill_manual(values = c("#2ecc71", "#e74c3c")) +
+    labs(
+        title = "Exam Anxiety by Stress Group",
+        x = "",
+        y = "Exam anxiety score (0–40)"
+    ) +
     theme_minimal(base_size = 14) +
-    labs(x = "Anxiety score", y = "Count")
-
-box_plot <- ggplot(dat, aes(x = group, y = anxiety_score, fill = group)) +
-    geom_boxplot(alpha = 0.8) +
-    scale_fill_manual(values = c("#2EC4B6", "#E71D36")) +
-    theme_minimal(base_size = 14) +
-    labs(x = "", y = "Anxiety score")
+    theme(legend.position = "none")
 ```
-
-</div>
 
 ---
 
-### Overview Table
-<div class="card-block reveal">
+### Getting to Know the Dataset
+
+Below is the full dataset in an interactive table.
+You can scroll, sort, and search entries.
 
 ```{r}
-overall
+datatable(
+    dat,
+    options = list(pageLength = 10),
+    rownames = FALSE
+)
 ```
 
-</div>
+This first step helps you check:
+
+* values look realistic
+* sleep hours and anxiety fall in expected ranges
+* gender and stress groups are split as expected
+* the dataset contains no obvious errors before summarizing
 
 ---
 
-### Group Comparison Table
-<div class="card-block reveal">
+### Nominal Variables: Group and Gender
+
+Nominal variables describe categories, not quantities.
+We summarise them using frequencies and percentages.
 
 ```{r}
-by_group
+tab_group |>
+    mutate(prop = paste0(prop, " %")) |>
+    kable(
+        caption = "Distribution of Students Across Stress Groups",
+        align = c("l", "r", "r")
+    )
 ```
 
-</div>
+```{r}
+tab_gender |>
+    mutate(prop = paste0(prop, " %")) |>
+    kable(
+        caption = "Distribution of Students Across Gender Categories",
+        align = c("l", "r", "r")
+    )
+```
 
 ---
 
-### Distribution Shape (Histogram)
-<div class="card-block reveal">
+### Ordinal Variable: Satisfaction
+
+Satisfaction is an ordered 1–5 rating.
+We describe ordinal variables with frequencies, because the spacing between categories is not assumed equal.
 
 ```{r}
-ggplotly(hist_plot)
+tab_satisfaction |>
+    mutate(prop = paste0(prop, " %")) |>
+    kable(
+        caption = "Satisfaction Ratings (1 = dissatisfied, 5 = very satisfied)",
+        align = c("c", "r", "r")
+    )
 ```
-
-</div>
 
 ---
 
-### Group Differences (Boxplot)
-<div class="card-block reveal">
+### Exam Anxiety: Describing Center and Spread
+
+Now we summarise the main continuous variable.
 
 ```{r}
-ggplotly(box_plot)
+overall_exam |>
+    kable(
+        caption = "Overall Descriptive Statistics for Exam Anxiety",
+        digits = 2,
+        col.names = c("n", "Mean", "Median", "SD", "IQR", "Min", "Max")
+    )
 ```
+
+You can think of:
+
+* **mean / median** → what is typical
+* **SD / IQR** → how much students differ
+* **min / max** → full extent of variation
+
+---
+
+### Anxiety by Stress Group
+
+Group comparisons help you see whether descriptive differences appear before formal tests.
+
+```{r}
+exam_by_group |>
+    kable(
+        caption = "Exam Anxiety by Stress Group",
+        digits = 2,
+        col.names = c("Group", "n", "Mean", "Median", "SD", "IQR")
+    )
+```
+
+---
+
+### Histogram of Exam Anxiety
+
+```{r}
+ggplotly(p_hist_exam)
+```
+
+
+
+**Interpretation of the Histogram: Understanding the Distribution of Exam Anxiety**
+
+The histogram gives us the first in-depth look at how exam anxiety is distributed across all 160 students. The overall shape is roughly bell-shaped, meaning most students cluster around a moderate anxiety level. The tallest bars fall between 18 and 24 points, indicating that this range represents the most common anxiety scores in the sample. Very few students score extremely low (close to 0–10) or extremely high (above 30), which suggests that extreme anxiety responses are relatively rare in this cohort.
+
+The distribution appears fairly symmetric, with no strong skew toward low or high values. That tells us that the mean and median should be relatively close to one another and reflect the “typical” student quite well. The slight tapering at both ends indicates that while variation exists, it is centered around a clear middle region rather than spread evenly across all possible values.
+
+From a psychological perspective, this shape makes intuitive sense. Most students experience some level of exam anxiety, but only a small subset are completely calm or strongly overwhelmed. The histogram therefore provides a meaningful first insight: the majority of students fall into a moderate-anxiety zone, with only a handful showing exceptionally low or high levels.
+
+### Boxplot: Between-Group Comparison
+
+```{r}
+ggplotly(p_box_exam)
+```
+
+
+
+**Interpretation of the Boxplot: Anxiety Differences Between Stress Groups**
+
+The boxplot visually compares exam anxiety between the Low stress and High stress groups, and the pattern is immediately clear. Students who rated themselves as High stress show substantially higher exam anxiety on average. This is reflected in the position of the median: the horizontal line inside the green box is noticeably higher than the one inside the red box. In other words, the “typical” high-stress student is more anxious than the “typical” low-stress student.
+
+The spread (height of each box) also tells an important story. The High stress group has a somewhat larger interquartile range (IQR), meaning that their anxiety levels are not only higher on average but also more variable. Students in this group differ from each other more strongly – some report moderately elevated anxiety, others report very high anxiety levels.
+
+The whiskers and occasional outliers show that both groups include individuals whose scores fall outside the central range, but the high-stress group tends to show higher extreme values. The low-stress group, by contrast, has a lower median, a narrower box, and a lower upper whisker, suggesting that students in this group are both less anxious and more consistent in their responses.
+
+Altogether, the boxplot offers a strong descriptive indication that the subjective stress grouping meaningfully corresponds to actual exam anxiety levels. Before running any statistical tests, this visualisation already reveals a clear and psychologically plausible relationship: students who feel stressed about the exam tend to be more anxious when measured objectively.
+
+### Summary of Practice Concepts
+
+In this Practice section, you have seen:
+
+* how to explore **nominal** variables via counts
+* how to summarise **ordinal** variables via frequency tables
+* how to describe **ratio** variables using means, medians, SDs, and IQRs
+* how to use **histograms** for distribution shape
+* how to use **boxplots** for comparing groups
+
+These tools form the foundation for everything that follows in probability, confidence intervals, hypothesis testing, correlation, and regression.
 
 </div>
 
@@ -533,26 +644,38 @@ ggplotly(box_plot)
 
 <div class="card-block reveal">
 
-Descriptive statistics give the essential overview needed before deeper
-analysis:
+Descriptive statistics form the foundation of all quantitative reasoning in psychology. Before any hypothesis can be tested or any model can be built, we must first understand what our data look like. This begins with recognising the different levels of measurement and how they determine what kinds of statistics are meaningful. Nominal variables such as gender or stress group are categorical and can only be summarised using counts and percentages; computing averages for them would be conceptually meaningless because the categories have no inherent numerical distance. Ordinal variables, like satisfaction ratings, preserve an order but not equal spacing, which is why medians and frequency distributions are preferred over means. For interval and ratio variables—such as exam anxiety or hours of sleep—we can meaningfully compute means, standard deviations, and other quantitative summaries, because the underlying scale reflects consistent numerical differences.
 
-- **centre** — where values tend to lie  
-- **spread** — how much individuals differ  
-- **shape** — whether data are symmetric or skewed  
-- **comparison** — whether groups differ descriptively  
+With measurement foundations in place, descriptive statistics help us capture the essential characteristics of a dataset. Measures of central tendency (mean, median) indicate where most observations tend to lie; measures of variability (IQR, standard deviation) show how widely individuals differ from one another. These numerical summaries are complemented by visual tools: histograms reveal the overall shape of a distribution, including whether scores are symmetric, skewed, unimodal, or spread unevenly; boxplots illustrate the median, quartiles, and possible outliers, and offer a straightforward way to compare groups side by side. When we combine these numerical and graphical summaries, we gain a far more complete understanding of our data than any single measure could provide.
 
-These tools allow students to interpret questionnaire scores, reaction times,
-clinical scales, and behavioural data with clarity.
+In the practical example, we saw how these concepts come together in a real dataset. Exam anxiety scores exhibited a roughly bell-shaped distribution, illustrating how most students fall into a moderate range of anxiety while only a few show extremely high or low values. Nominal variables such as self-reported stress group and gender were appropriately summarised using frequencies and percentages. Ordinal satisfaction ratings revealed how students’ general study experience varies, without assuming equal spacing between response options. Comparing anxiety levels between low- and high-stress groups demonstrated how descriptive statistics reveal meaningful group differences even before formal statistical tests are applied. Higher medians and a wider spread in the high-stress group illustrated both elevated anxiety and greater variability among those students.
+
+Taken together, the descriptive tools presented in this chapter help students build an intuitive and technically correct understanding of psychological data. They teach us how to accurately summarise what we have observed, how to distinguish between different types of variables, how to describe distributions clearly, and how to identify patterns that might inspire further analysis. By mastering descriptive statistics, students lay the groundwork for all subsequent topics in the course—from probability to confidence intervals, hypothesis testing, regression, and beyond. Descriptive statistics are not merely introductory; they are the essential first step in every scientific investigation, and they shape the clarity and validity of all conclusions drawn from psychological research.
 
 </div>
 
 ---
 
-### Summary Visual
-<div class="centered-image reveal">
+### Summary Visuals: The Four Pillars of Descriptive Statistics
 
-![Overview of descriptive statistics.](images/topic1_summary.png)
+<div class="centered-image reveal" style="margin-bottom: 40px;">
+  <img src="images/pillar_center.png" alt="Center (Mean & Median)" style="max-width: 80%; border-radius: 12px;">
+  <p><em>Pillar 1 — Center (Mean & Median)</em></p>
+</div>
 
+<div class="centered-image reveal" style="margin-bottom: 40px;">
+  <img src="images/pillar_spread.png" alt="Spread (IQR & SD)" style="max-width: 80%; border-radius: 12px;">
+  <p><em>Pillar 2 — Spread (IQR & SD)</em></p>
+</div>
+
+<div class="centered-image reveal" style="margin-bottom: 40px;">
+  <img src="images/pillar_shape.png" alt="Shape of Distribution" style="max-width: 80%; border-radius: 12px;">
+  <p><em>Pillar 3 — Shape of the Distribution</em></p>
+</div>
+
+<div class="centered-image reveal" style="margin-bottom: 40px;">
+  <img src="images/pillar_comparison.png" alt="Group Comparison" style="max-width: 80%; border-radius: 12px;">
+  <p><em>Pillar 4 — Group Comparison</em></p>
 </div>
 
 :::

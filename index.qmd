@@ -1,0 +1,27 @@
+---
+title: "Introductory Statistics for Psychology"
+format:
+  html:
+    toc: false
+---
+
+# Welcome
+
+This website is an interactive companion for the first-year Statistics in Psychology course at the University of Zurich.
+
+Use the top navigation bar to explore the four core topics:
+
+1. Descriptive Statistics  
+2. Probability  
+3. Tests & Confidence Intervals  
+4. Covariance & Correlation  
+
+Each topic page includes:
+
+- **Theory**  
+- **Practice (R examples)**  
+- **Tutor explanations**  
+- **Self-check questions**  
+- **A summary image**
+
+Start with **Descriptive Statistics**.

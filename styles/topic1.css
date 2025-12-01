@@ -1,0 +1,5 @@
+:root {
+  --bs-primary: #f39c12;
+}
+body { border-top: 4px solid var(--bs-primary); }
+h1, h2, h3 { color: var(--bs-primary); }

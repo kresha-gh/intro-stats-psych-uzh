@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Introductory Statistics for Psychology (UZH)"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: topic1_descriptive.qmd
+        text: "1. Descriptive Statistics"
+      - href: topic2_probability.qmd
+        text: "2. Probability"
+      - href: topic3_tests_ci.qmd
+        text: "3. Tests & Confidence Intervals"
+      - href: topic4_covcorr.qmd
+        text: "4. Covariance & Correlation"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    number-sections: true
+    smooth-scroll: true

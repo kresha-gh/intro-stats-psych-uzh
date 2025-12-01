@@ -1,0 +1,162 @@
+/* ---------------------------------------------------------
+   GLOBAL LAYOUT — Wider content area for all pages
+----------------------------------------------------------*/
+
+.page-main .content {
+  max-width: 1200px !important;
+  padding-top: 1.2rem;
+}
+
+
+/* ---------------------------------------------------------
+   NAVBAR STYLING — cleaner, more modern
+----------------------------------------------------------*/
+
+.navbar {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+}
+
+.navbar-brand {
+  font-weight: 600 !important;
+  font-size: 1.15rem !important;
+  letter-spacing: -0.3px;
+}
+
+.navbar-nav > li > a,
+.navbar-nav .nav-link {
+  font-size: 0.95rem !important;
+  padding-left: 0.8rem !important;
+  padding-right: 0.8rem !important;
+}
+
+.navbar .dropdown-menu {
+  font-size: 0.9rem;
+}
+
+
+/* ---------------------------------------------------------
+   TYPOGRAPHY — headers, paragraphs, spacing
+----------------------------------------------------------*/
+
+h1, h2, h3, h4 {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: #222;
+}
+
+p, li {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: #333;
+}
+
+h2 {
+  margin-top: 2rem !important;
+  margin-bottom: 0.7rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.3rem;
+}
+
+h3 {
+  margin-top: 1.4rem !important;
+  margin-bottom: 0.4rem;
+}
+
+
+/* ---------------------------------------------------------
+   TABSETS — cleaner tab bar
+----------------------------------------------------------*/
+
+.panel-tabset .nav-tabs .nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0 !important;
+}
+
+.panel-tabset .nav-tabs .nav-link.active {
+  background-color: #ffffff !important;
+  border-bottom: 2px solid #2c82c9 !important; /* UZH blue */
+  color: #2c82c9 !important;
+}
+
+
+/* ---------------------------------------------------------
+   CODE BLOCKS
+   (we show only one “big code block” at bottom of page)
+----------------------------------------------------------*/
+
+pre code {
+  font-size: 0.9rem !important;
+}
+
+.code-fold {
+  border-radius: 6px !important;
+}
+
+.code-summary {
+  font-weight: 600;
+  color: #2c82c9;
+}
+
+
+/* ---------------------------------------------------------
+   DATA TABLES (DT)
+----------------------------------------------------------*/
+
+table.dataTable {
+  font-size: 0.9rem !important;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  border-radius: 4px;
+  border: 1px solid #aaa;
+}
+
+/* Center table header text */
+table.dataTable thead th {
+  text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   FIGURES — subtle shadow, spacing
+----------------------------------------------------------*/
+
+figure {
+  margin-top: 1.3rem;
+  margin-bottom: 1.3rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+  border-radius: 6px;
+}
+
+img {
+  border-radius: 6px;
+}
+
+
+/* ---------------------------------------------------------
+   CALLOUT BOXES — cleaner, lighter
+----------------------------------------------------------*/
+
+.callout {
+  border-left-width: 4px !important;
+  border-radius: 6px !important;
+}
+
+.callout-tip {
+  border-left-color: #2ecc71 !important;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER / SMALL TEXT
+----------------------------------------------------------*/
+
+small, .footer {
+  font-size: 0.8rem !important;
+  color: #777 !important;
+}

@@ -8,21 +8,30 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: topic1_descriptive.qmd
-        text: "1. Descriptive Statistics"
-      - href: topic2_probability.qmd
-        text: "2. Probability"
-      - href: topic3_tests_ci.qmd
-        text: "3. Tests & Confidence Intervals"
-      - href: topic4_covcorr.qmd
-        text: "4. Covariance & Correlation"
+      - text: Topics
+        menu:
+          - href: topic1_descriptive.qmd
+            text: "1. Descriptive Statistics"
+          - href: topic2_probability.qmd
+            text: "2. Probability"
+          - href: topic3_tests_ci.qmd
+            text: "3. Tests & Confidence Intervals"
+          - href: topic4_covcorr.qmd
+            text: "4. Covariance & Correlation"
+          - href: topic5_linreg.qmd
+            text: "5. Simple Linear Regression"
+          - href: topic6_partialcorr.qmd
+            text: "6. Partial Correlations"
+          - href: topic7_multreg.qmd
+            text: "7. Multiple Regression"
+          - href: topic8_anova.qmd
+            text: "8. Analysis of Variance (ANOVA)"
 
 format:
   html:
     theme: cosmo
     toc: true
     toc-depth: 3
-    code-fold: true
-    code-tools: true
-    number-sections: true
+    number-sections: false
     smooth-scroll: true
+    css: styles/site.css

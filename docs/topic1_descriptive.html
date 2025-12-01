@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Descriptive Statistics – Introductory Statistics for Psychology (UZH)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.11.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+<link rel="stylesheet" href="styles/site.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Introductory Statistics for Psychology (UZH)</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-topics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Topics</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-topics">    
+        <li>
+    <a class="dropdown-item" href="./topic1_descriptive.html">
+ <span class="dropdown-text">1. Descriptive Statistics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topic2_probability.html">
+ <span class="dropdown-text">2. Probability</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topic3_tests_ci.html">
+ <span class="dropdown-text">3. Tests &amp; Confidence Intervals</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topic4_covcorr.html">
+ <span class="dropdown-text">4. Covariance &amp; Correlation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topic5_linreg.html">
+ <span class="dropdown-text">5. Simple Linear Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topic6_partialcorr.html">
+ <span class="dropdown-text">6. Partial Correlations</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topic7_multreg.html">
+ <span class="dropdown-text">7. Multiple Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./topic8_anova.html">
+ <span class="dropdown-text">8. Analysis of Variance (ANOVA)</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Descriptive Statistics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-block {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 35px;
+  background: #ffffff;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.05);
+}
+
+.card-block h3 {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.centered-image {
+  text-align: center;
+  margin-top: 20px;
+}
+.centered-image img {
+  max-width: 80%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+}
+</style>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Theory</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Practice</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Summary</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="reveal">
+<section id="why-psychologists-need-descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="why-psychologists-need-descriptive-statistics">1. Why psychologists need descriptive statistics</h3>
+<p>Imagine you run your very first study:<br>
+120 students fill in an anxiety questionnaire before an important exam.<br>
+You download the data, open the file – and suddenly you are staring at a long list of numbers.</p>
+<p>On its own, this list does not tell you much. You cannot immediately see</p>
+<ul>
+<li>how anxious the <em>average</em> student feels,<br>
+</li>
+<li>whether there are big differences between students,<br>
+</li>
+<li>whether anxiety is mostly low with a few very anxious students,<br>
+</li>
+<li>or whether students in a “high-stress” group are actually more anxious.</li>
+</ul>
+<p>Descriptive statistics are the tools that turn this raw list of numbers into a clear picture. They help you <strong>summarise</strong>, <strong>organise</strong>, and <strong>describe</strong> the data so you can understand what is going on in your sample.</p>
+<p>Before we talk about hypotheses, p-values, or effect sizes, we always start here: with a careful descriptive look at the data. If the descriptive picture is wrong or unclear, all later conclusions become shaky.</p>
+<p>You can think of descriptive statistics as the <strong>“language” your data speaks</strong>. Learning this language is one of the core skills of a psychologist who works with empirical findings.</p>
+<hr>
+</section>
+<section id="from-individual-cases-to-an-overview" class="level3">
+<h3 class="anchored" data-anchor-id="from-individual-cases-to-an-overview">2. From individual cases to an overview</h3>
+<p>Psychological data almost always come from many individuals:<br>
+students, patients, couples, families, therapy groups.</p>
+<p>For example:</p>
+<ul>
+<li>120 students’ anxiety scores (0–40)<br>
+</li>
+<li>80 patients’ depression scores before and after therapy<br>
+</li>
+<li>200 people’s hours of sleep per night<br>
+</li>
+<li>60 participants’ reaction times in a decision task</li>
+</ul>
+<p>Looking at each person one by one is impossible. Instead, we ask questions at the <em>group level</em>:</p>
+<ul>
+<li>What is a <strong>typical</strong> anxiety score in this group?<br>
+</li>
+<li>How much do scores <strong>vary</strong> between people?<br>
+</li>
+<li>Are extreme values present – e.g., extremely high depression scores?<br>
+</li>
+<li>How does one group (e.g., low vs.&nbsp;high stress) <strong>compare</strong> to another?</li>
+</ul>
+<p>Descriptive statistics provide answers by compressing many numbers into a few meaningful summaries.</p>
+<hr>
+</section>
+<section id="variables-and-levels-of-measurement" class="level3">
+<h3 class="anchored" data-anchor-id="variables-and-levels-of-measurement">3. Variables and levels of measurement</h3>
+<p>Before summarising anything, we must understand <strong>what kind of variable</strong> we are dealing with. Different variables allow different kinds of questions and statistics.</p>
+<section id="nominal-variables-categories-without-order" class="level4">
+<h4 class="anchored" data-anchor-id="nominal-variables-categories-without-order">Nominal variables – categories without order</h4>
+<p>Nominal variables place people into categories with <strong>no natural ranking</strong>.</p>
+<p>Examples in psychology:</p>
+<ul>
+<li>handedness: left / right<br>
+</li>
+<li>therapy type: CBT / ACT / psychodynamic / none<br>
+</li>
+<li>favourite social media platform</li>
+</ul>
+<p>For nominal variables we can meaningfully talk about:</p>
+<ul>
+<li><strong>how many</strong> people are in each category<br>
+</li>
+<li><strong>which</strong> category is most common</li>
+</ul>
+<p>We cannot meaningfully compute a mean or a median of “therapy types”.</p>
+</section>
+<section id="ordinal-variables-ordered-categories" class="level4">
+<h4 class="anchored" data-anchor-id="ordinal-variables-ordered-categories">Ordinal variables – ordered categories</h4>
+<p>Ordinal variables have categories that can be ordered, but we do not know how big the steps between categories are.</p>
+<p>Examples:</p>
+<ul>
+<li>symptom severity: “none, mild, moderate, severe”<br>
+</li>
+<li>agreement with a statement: 1 = “strongly disagree” to 5 = “strongly agree”<br>
+</li>
+<li>satisfaction with therapy: “not at all” to “very much”</li>
+</ul>
+<p>Here we can say:</p>
+<ul>
+<li>A score of 4 means <strong>more</strong> of something than a score of 2.<br>
+</li>
+<li>But we do not know if the difference between 1 and 2 is the same size as the difference between 4 and 5.</li>
+</ul>
+<p>For ordinal data, medians and percentiles are often more appropriate than means, because they respect the order without assuming equal distances.</p>
+</section>
+<section id="interval-variables-equal-steps-no-true-zero" class="level4">
+<h4 class="anchored" data-anchor-id="interval-variables-equal-steps-no-true-zero">Interval variables – equal steps, no true zero</h4>
+<p>Interval variables have equal units, but zero does <strong>not</strong> mean “nothing”.</p>
+<p>The classic example is temperature in °C:<br>
+The difference between 10°C and 20°C is the same as between 20°C and 30°C, but 0°C does not mean “no temperature”.</p>
+<p>In psychology we rarely have pure interval variables, but many scales are <em>treated</em> as if they were at least approximately interval. This is one reason why we often compute means and standard deviations for questionnaire scores.</p>
+</section>
+<section id="ratio-variables-equal-steps-and-a-meaningful-zero" class="level4">
+<h4 class="anchored" data-anchor-id="ratio-variables-equal-steps-and-a-meaningful-zero">Ratio variables – equal steps and a meaningful zero</h4>
+<p>For ratio variables, zero truly means “none of the quantity”.</p>
+<p>Examples:</p>
+<ul>
+<li>reaction time in milliseconds (0 ms = no time)<br>
+</li>
+<li>number of mistakes in a memory test (0 errors = perfect performance)<br>
+</li>
+<li>hours of sleep per night (0 hours = did not sleep)<br>
+</li>
+<li>anxiety scores from 0 to 40, where 0 means no reported anxiety symptoms</li>
+</ul>
+<p>Most continuous psychological variables are at least approximately ratio. For ratio variables we can use all the familiar tools: means, SDs, ratios (“twice as fast”), correlations, and so on.</p>
+<hr>
+</section>
+</section>
+<section id="describing-distributions-not-just-one-number" class="level3">
+<h3 class="anchored" data-anchor-id="describing-distributions-not-just-one-number">4. Describing distributions: not just one number</h3>
+<p>Each variable in your dataset has a <strong>distribution</strong>: it shows how often different values occur.</p>
+<p>For example, if you plot the frequency of anxiety scores from 0 to 40, you might see:</p>
+<ul>
+<li>many students around 18–22 points,<br>
+</li>
+<li>fewer students with very low or very high anxiety,<br>
+</li>
+<li>perhaps a single very anxious student around 35.</li>
+</ul>
+<p>This shape matters. Two variables can have the same mean but very different distributions. Knowing the distribution helps you decide:</p>
+<ul>
+<li>which summary statistics are appropriate,<br>
+</li>
+<li>whether the data meet assumptions for later methods,<br>
+</li>
+<li>whether a few extreme values are driving the results.</li>
+</ul>
+<p>In descriptive statistics, we often describe distributions in words:</p>
+<blockquote class="blockquote">
+<p>“Anxiety scores were roughly symmetric and centred around 20, with most students scoring between 15 and 25. Only a few students reported very low or very high anxiety.”</p>
+</blockquote>
+<p>Being able to write such sentences clearly is a core skill for psychological reporting.</p>
+<hr>
+</section>
+<section id="central-tendency-describing-the-typical-value" class="level3">
+<h3 class="anchored" data-anchor-id="central-tendency-describing-the-typical-value">5. Central tendency: describing the “typical” value</h3>
+<p>We now turn to measures of <strong>central tendency</strong> — numbers that describe where the centre of a distribution lies.</p>
+<section id="mean-the-arithmetic-average" class="level4">
+<h4 class="anchored" data-anchor-id="mean-the-arithmetic-average">Mean – the arithmetic average</h4>
+<p>The mean is what many people call the “average”:<br>
+add all scores and divide by the number of scores.</p>
+<p>In our anxiety example, a mean of 20 would mean that, on average, students reported moderate anxiety.</p>
+<p>Strengths:</p>
+<ul>
+<li>uses all information in the data<br>
+</li>
+<li>widely used in research articles and statistics</li>
+</ul>
+<p>Weakness:</p>
+<ul>
+<li>very sensitive to <strong>outliers</strong>.<br>
+If one student has a score of 40, the mean moves upwards, even if everyone else has moderate anxiety.</li>
+</ul>
+<p>Because of this sensitivity, the mean works best for distributions that are not extremely skewed and do not contain extreme outliers.</p>
+</section>
+<section id="median-the-middle-observation" class="level4">
+<h4 class="anchored" data-anchor-id="median-the-middle-observation">Median – the middle observation</h4>
+<p>The median is the value that splits the distribution in half:<br>
+50% of scores are below, 50% are above.</p>
+<p>If the median anxiety score is 19, half of the students have anxiety 19 or lower, and half have 19 or higher.</p>
+<p>Strengths:</p>
+<ul>
+<li>robust to extreme values (one very anxious student does not change the median much)<br>
+</li>
+<li>works well for skewed or ordinal data</li>
+</ul>
+<p>Weakness:</p>
+<ul>
+<li>less sensitive to subtle changes in the whole distribution</li>
+</ul>
+</section>
+<section id="mode-the-most-frequent-value" class="level4">
+<h4 class="anchored" data-anchor-id="mode-the-most-frequent-value">Mode – the most frequent value</h4>
+<p>The mode is the value that occurs most often.</p>
+<p>This is especially useful for <strong>categorical</strong> variables:</p>
+<ul>
+<li>“CBT” might be the modal therapy type<br>
+</li>
+<li>“Instagram” might be the most frequent social media platform</li>
+</ul>
+<p>For continuous variables, the mode is less often reported in psychology.</p>
+</section>
+<section id="comparing-mean-and-median" class="level4">
+<h4 class="anchored" data-anchor-id="comparing-mean-and-median">Comparing mean and median</h4>
+<p>The relationship between mean and median already tells us something about the distribution:</p>
+<ul>
+<li>mean ≈ median → distribution is roughly symmetric<br>
+</li>
+<li>mean &gt; median → distribution is right-skewed (few very high scores)<br>
+</li>
+<li>mean &lt; median → distribution is left-skewed (few very low scores)</li>
+</ul>
+<p>When writing about your data, you can integrate this information:</p>
+<blockquote class="blockquote">
+<p>“The mean and median anxiety scores were very similar (20.1 vs.&nbsp;20.0), suggesting a roughly symmetric distribution without strong skewness.”</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="variability-how-different-are-people-from-each-other" class="level3">
+<h3 class="anchored" data-anchor-id="variability-how-different-are-people-from-each-other">6. Variability: how different are people from each other?</h3>
+<p>Knowing the centre is important, but in psychology <strong>differences between individuals</strong> are often just as interesting. Do people cluster tightly around the mean, or are they spread out?</p>
+<section id="range-simplest-but-fragile" class="level4">
+<h4 class="anchored" data-anchor-id="range-simplest-but-fragile">Range – simplest but fragile</h4>
+<p>The range is the difference between the largest and smallest observed value.</p>
+<p>For anxiety from 6 to 33 points, the range is 27.</p>
+<p>Problem: it depends only on two observations and is extremely sensitive to outliers. One unusual person can change the range completely.</p>
+</section>
+<section id="interquartile-range-iqr-spread-of-the-middle-50" class="level4">
+<h4 class="anchored" data-anchor-id="interquartile-range-iqr-spread-of-the-middle-50">Interquartile range (IQR) – spread of the middle 50%</h4>
+<p>To get a more robust measure, we look at the middle 50% of the data:</p>
+<ul>
+<li>the 25th percentile (Q1) – where 25% of scores are below<br>
+</li>
+<li>the 75th percentile (Q3) – where 75% of scores are below</li>
+</ul>
+<p>The IQR is Q3 − Q1.</p>
+<p>If Q1 = 16 and Q3 = 23, then IQR = 7.<br>
+This means that the middle half of students have anxiety between 16 and 23.</p>
+<p>IQR is robust and works well even when a few extreme values exist.</p>
+</section>
+<section id="standard-deviation-sd-typical-deviation-from-the-mean" class="level4">
+<h4 class="anchored" data-anchor-id="standard-deviation-sd-typical-deviation-from-the-mean">Standard deviation (SD) – typical deviation from the mean</h4>
+<p>The standard deviation is the most widely used measure of variability in psychology. Conceptually:</p>
+<ul>
+<li>it tells you how far, on average, individual scores are from the mean.</li>
+</ul>
+<p>If the mean anxiety score is 20 and SD is 5, a typical student is about 5 points away from the mean. Many students will fall in the range 15–25.</p>
+<p>A larger SD means more variability:<br>
+students differ more strongly from one another.</p>
+<p>In research reports you often see sentences like:</p>
+<blockquote class="blockquote">
+<p>“Anxiety scores were moderate, <em>M</em> = 20.1, <em>SD</em> = 5.3.”</p>
+</blockquote>
+<p>Here, <em>M</em> is the mean and <em>SD</em> is the standard deviation.</p>
+<hr>
+</section>
+</section>
+<section id="putting-descriptives-into-words" class="level3">
+<h3 class="anchored" data-anchor-id="putting-descriptives-into-words">7. Putting descriptives into words</h3>
+<p>A huge part of statistical skill is the ability to translate numbers into clear, accurate sentences. Consider the following example summary:</p>
+<blockquote class="blockquote">
+<p>“On a 0–40 scale, students reported moderate anxiety<br>
+(<em>M</em> = 20.1, <em>SD</em> = 5.4, <em>Mdn</em> = 20, IQR = 6.5).<br>
+Scores ranged from 6 to 33.<br>
+The similarity of mean and median suggests little skewness.”</p>
+</blockquote>
+<p>This short paragraph answers four important questions:</p>
+<ol type="1">
+<li><strong>Level</strong>: Are scores low, moderate, or high?<br>
+</li>
+<li><strong>Variability</strong>: Do students differ a lot in anxiety?<br>
+</li>
+<li><strong>Extremes</strong>: What are the lowest and highest scores?<br>
+</li>
+<li><strong>Shape</strong>: Is the distribution fairly symmetric?</li>
+</ol>
+<p>In your own assignments, aim to write at this level of clarity:<br>
+no unnecessary technical details, but precise enough that another reader can picture the distribution.</p>
+<hr>
+</section>
+<section id="describing-and-comparing-groups" class="level3">
+<h3 class="anchored" data-anchor-id="describing-and-comparing-groups">8. Describing and comparing groups</h3>
+<p>In psychological research we often compare groups:</p>
+<ul>
+<li>treatment vs.&nbsp;control<br>
+</li>
+<li>low vs.&nbsp;high stress<br>
+</li>
+<li>younger vs.&nbsp;older adults</li>
+</ul>
+<p>Descriptive statistics are the first step before any formal test.</p>
+<p>Suppose our two groups have:</p>
+<ul>
+<li>Low-stress: mean anxiety 20.5, SD 5.6<br>
+</li>
+<li>High-stress: mean anxiety 19.6, SD 5.0</li>
+</ul>
+<p>At first glance, the means are very similar. If we saw this in a table or boxplot, we might write:</p>
+<blockquote class="blockquote">
+<p>“Anxiety levels were similar in the low- and high-stress groups<br>
+(means around 20, SDs around 5), suggesting no strong descriptive group difference.”</p>
+</blockquote>
+<p>This does <strong>not</strong> yet answer the inferential question “Are the groups significantly different?” – that comes later with t-tests or ANOVAs. But it already tells us that any difference we find later is unlikely to be dramatic.</p>
+<p>Good practice in psychology:</p>
+<ol type="1">
+<li>First, <strong>describe</strong> both groups (means, medians, SDs, IQRs, sample sizes).<br>
+</li>
+<li>Then, and only then, move on to hypothesis tests.</li>
+</ol>
+<hr>
+</section>
+<section id="descriptive-statistics-as-the-base-of-everything-that-follows" class="level3">
+<h3 class="anchored" data-anchor-id="descriptive-statistics-as-the-base-of-everything-that-follows">9. Descriptive statistics as the base of everything that follows</h3>
+<p>Later in your studies you will encounter many statistical methods:</p>
+<ul>
+<li>correlations and regression<br>
+</li>
+<li>t-tests and ANOVAs<br>
+</li>
+<li>confidence intervals and effect sizes<br>
+</li>
+<li>structural equation models and multilevel models</li>
+</ul>
+<p>All of them rely on the same basic ideas:</p>
+<ul>
+<li>what is typical in the data,<br>
+</li>
+<li>how much variability exists,<br>
+</li>
+<li>how the distribution is shaped,<br>
+</li>
+<li>and how groups or variables relate descriptively.</li>
+</ul>
+<p>If you build a strong intuition for descriptive statistics now, every later method will make much more sense. You will be better able to:</p>
+<ul>
+<li>spot unusual or impossible values in a dataset,<br>
+</li>
+<li>judge whether model assumptions are realistic,<br>
+</li>
+<li>read tables and figures in research articles,<br>
+</li>
+<li>and communicate your own findings clearly in reports and theses.</li>
+</ul>
+<p>Descriptive statistics are not a boring “first chapter to survive”.<br>
+They are the <strong>core toolkit</strong> you will repeatedly use as a psychologist who works with data.</p>
+</section>
+</div>
+<hr>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<section id="simulating-example-data" class="level3">
+<h3 class="anchored" data-anchor-id="simulating-example-data">Simulating Example Data</h3>
+<div class="card-block reveal">
+<p>To make this topic concrete, we simulate data from <strong>120 psychology students</strong> completing a <strong>0–40 anxiety scale</strong>, together with a <strong>stress group</strong> (low vs. high). This simulated dataset is used in all visualisations and tables below.</p>
+</div>
+<hr>
+</section>
+<section id="overview-table" class="level3">
+<h3 class="anchored" data-anchor-id="overview-table">Overview Table</h3>
+<div class="card-block reveal">
+<div class="cell">
+<div class="cell-output-display">
+<div id="djfceeagvz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#djfceeagvz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#djfceeagvz thead, #djfceeagvz tbody, #djfceeagvz tfoot, #djfceeagvz tr, #djfceeagvz td, #djfceeagvz th {
+  border-style: none;
+}
+
+#djfceeagvz p {
+  margin: 0;
+  padding: 0;
+}
+
+#djfceeagvz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#djfceeagvz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#djfceeagvz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#djfceeagvz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#djfceeagvz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#djfceeagvz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#djfceeagvz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#djfceeagvz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#djfceeagvz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#djfceeagvz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#djfceeagvz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#djfceeagvz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#djfceeagvz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#djfceeagvz .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#djfceeagvz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djfceeagvz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#djfceeagvz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#djfceeagvz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#djfceeagvz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djfceeagvz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#djfceeagvz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djfceeagvz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#djfceeagvz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djfceeagvz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#djfceeagvz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#djfceeagvz .gt_left {
+  text-align: left;
+}
+
+#djfceeagvz .gt_center {
+  text-align: center;
+}
+
+#djfceeagvz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#djfceeagvz .gt_font_normal {
+  font-weight: normal;
+}
+
+#djfceeagvz .gt_font_bold {
+  font-weight: bold;
+}
+
+#djfceeagvz .gt_font_italic {
+  font-style: italic;
+}
+
+#djfceeagvz .gt_super {
+  font-size: 65%;
+}
+
+#djfceeagvz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#djfceeagvz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#djfceeagvz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#djfceeagvz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#djfceeagvz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#djfceeagvz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#djfceeagvz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#djfceeagvz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#djfceeagvz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean</th>
+<th id="SD" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SD</th>
+<th id="Median" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Median</th>
+<th id="IQR" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IQR</th>
+<th id="Min" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Min</th>
+<th id="Max" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Max</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="Mean">20.13333</td>
+<td class="gt_row gt_right" headers="SD">5.354545</td>
+<td class="gt_row gt_right" headers="Median">20</td>
+<td class="gt_row gt_right" headers="IQR">6.5</td>
+<td class="gt_row gt_right" headers="Min">6</td>
+<td class="gt_row gt_right" headers="Max">33</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="group-comparison-table" class="level3">
+<h3 class="anchored" data-anchor-id="group-comparison-table">Group Comparison Table</h3>
+<div class="card-block reveal">
+<div class="cell">
+<div class="cell-output-display">
+<div id="xbuoskvoin" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xbuoskvoin table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xbuoskvoin thead, #xbuoskvoin tbody, #xbuoskvoin tfoot, #xbuoskvoin tr, #xbuoskvoin td, #xbuoskvoin th {
+  border-style: none;
+}
+
+#xbuoskvoin p {
+  margin: 0;
+  padding: 0;
+}
+
+#xbuoskvoin .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xbuoskvoin .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xbuoskvoin .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xbuoskvoin .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xbuoskvoin .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xbuoskvoin .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xbuoskvoin .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xbuoskvoin .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xbuoskvoin .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xbuoskvoin .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xbuoskvoin .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xbuoskvoin .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xbuoskvoin .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xbuoskvoin .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xbuoskvoin .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbuoskvoin .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xbuoskvoin .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xbuoskvoin .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xbuoskvoin .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbuoskvoin .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xbuoskvoin .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbuoskvoin .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xbuoskvoin .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbuoskvoin .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xbuoskvoin .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xbuoskvoin .gt_left {
+  text-align: left;
+}
+
+#xbuoskvoin .gt_center {
+  text-align: center;
+}
+
+#xbuoskvoin .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xbuoskvoin .gt_font_normal {
+  font-weight: normal;
+}
+
+#xbuoskvoin .gt_font_bold {
+  font-weight: bold;
+}
+
+#xbuoskvoin .gt_font_italic {
+  font-style: italic;
+}
+
+#xbuoskvoin .gt_super {
+  font-size: 65%;
+}
+
+#xbuoskvoin .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xbuoskvoin .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xbuoskvoin .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xbuoskvoin .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xbuoskvoin .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xbuoskvoin .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xbuoskvoin .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xbuoskvoin .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xbuoskvoin div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="group" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">group</th>
+<th id="Mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean</th>
+<th id="SD" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SD</th>
+<th id="Median" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Median</th>
+<th id="IQR" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IQR</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="group">high_stress</td>
+<td class="gt_row gt_right" headers="Mean">19.56250</td>
+<td class="gt_row gt_right" headers="SD">5.027187</td>
+<td class="gt_row gt_right" headers="Median">19</td>
+<td class="gt_row gt_right" headers="IQR">7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="group">low_stress</td>
+<td class="gt_row gt_right" headers="Mean">20.51389</td>
+<td class="gt_row gt_right" headers="SD">5.563951</td>
+<td class="gt_row gt_right" headers="Median">20</td>
+<td class="gt_row gt_right" headers="IQR">7</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="distribution-shape-histogram" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-shape-histogram">Distribution Shape (Histogram)</h3>
+<div class="card-block reveal">
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-081d00474ca9db233516" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-081d00474ca9db233516">{"x":{"data":[{"orientation":"v","width":[2.4545454545454533,2.4545454545454541,2.4545454545454533,2.4545454545454533,2.4545454545454568,2.4545454545454533,2.4545454545454533,2.4545454545454533,2.4545454545454533,2.4545454545454533,2.4545454545454533,2.4545454545454533],"base":[0,0,0,0,0,0,0,0,0,0,0,0],"x":[6,8.4545454545454533,10.90909090909091,13.363636363636363,15.818181818181818,18.272727272727273,20.727272727272727,23.181818181818183,25.636363636363637,28.090909090909093,30.545454545454547,33],"y":[1,1,6,10,20,19,16,22,10,10,2,3],"text":["count:  1<br />anxiety_score:  6.000000","count:  1<br />anxiety_score:  8.454545","count:  6<br />anxiety_score: 10.909091","count: 10<br />anxiety_score: 13.363636","count: 20<br />anxiety_score: 15.818182","count: 19<br />anxiety_score: 18.272727","count: 16<br />anxiety_score: 20.727273","count: 22<br />anxiety_score: 23.181818","count: 10<br />anxiety_score: 25.636364","count: 10<br />anxiety_score: 28.090909","count:  2<br />anxiety_score: 30.545455","count:  3<br />anxiety_score: 33.000000"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(255,159,28,1)","line":{"width":1.8897637795275593,"color":"rgba(255,255,255,1)"}},"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":25.298464092984645,"r":9.2984640929846432,"b":47.422166874221674,"l":47.422166874221681},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[3.3000000000000007,35.700000000000003],"tickmode":"array","ticktext":["10","20","30"],"tickvals":[10,20,30],"categoryorder":"array","categoryarray":["10","20","30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923198,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":14.877542548775427},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Anxiety score","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-1.1000000000000001,23.100000000000001],"tickmode":"array","ticktext":["0","5","10","15","20"],"tickvals":[0,5,10,15.000000000000002,20],"categoryorder":"array","categoryarray":["0","5","10","15","20"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923216,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":14.87754254877543},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Count","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.877542548775427}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"1035928d131bf":{"x":{},"type":"bar"}},"cur_data":"1035928d131bf","visdat":{"1035928d131bf":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="group-differences-boxplot" class="level3">
+<h3 class="anchored" data-anchor-id="group-differences-boxplot">Group Differences (Boxplot)</h3>
+<div class="card-block reveal">
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-da2e577de50dfc9469b1" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-da2e577de50dfc9469b1">{"x":{"data":[{"x":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"y":[17,19,19,22,24,12,17,14,19,16,17,26,19,26,11,23,16,27,14,23,19,16,26,29,20,24,13,18,22,22,19,14,14,25,23,22,18,33,17,24,10,25,16,22,18,13,22,14],"hoverinfo":"y","type":"box","fillcolor":"rgba(46,196,182,0.8)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"},"size":5.6692913385826778},"line":{"color":"rgba(51,51,51,1)","width":1.8897637795275593},"name":"high_stress","legendgroup":"high_stress","showlegend":true,"xaxis":"x","yaxis":"y","frame":null},{"x":[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],"y":[17,17,29,33,21,30,23,16,25,18,27,20,20,21,21,31,23,8,21,17,16,25,18,16,14,10,15,20,13,28,23,18,25,27,20,23,23,20,18,18,28,19,12,24,27,22,21,14,21,19,22,16,32,29,20,16,26,22,19,24,21,18,20,18,28,17,16,21,6,10,15,26],"hoverinfo":"y","type":"box","fillcolor":"rgba(231,29,54,0.8)","marker":{"opacity":null,"outliercolor":"rgba(0,0,0,1)","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"},"size":5.6692913385826778},"line":{"color":"rgba(51,51,51,1)","width":1.8897637795275593},"name":"low_stress","legendgroup":"low_stress","showlegend":true,"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":25.298464092984645,"r":9.2984640929846432,"b":28.825238688252391,"l":47.422166874221681},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,2.6000000000000001],"tickmode":"array","ticktext":["high_stress","low_stress"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["high_stress","low_stress"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923198,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":14.877542548775427},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[4.6500000000000004,34.350000000000001],"tickmode":"array","ticktext":["10","20","30"],"tickvals":[10,20,30],"categoryorder":"array","categoryarray":["10","20","30"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":4.6492320464923216,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":14.87754254877543},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Anxiety score","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":14.877542548775427},"title":{"text":"group","font":{"color":"rgba(0,0,0,1)","family":"","size":18.596928185969279}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"103591c18c905":{"x":{},"y":{},"fill":{},"type":"box"}},"cur_data":"103591c18c905","visdat":{"103591c18c905":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="card-block reveal">
+<p>Descriptive statistics give the essential overview needed before deeper analysis:</p>
+<ul>
+<li><strong>centre</strong> — where values tend to lie<br>
+</li>
+<li><strong>spread</strong> — how much individuals differ<br>
+</li>
+<li><strong>shape</strong> — whether data are symmetric or skewed<br>
+</li>
+<li><strong>comparison</strong> — whether groups differ descriptively</li>
+</ul>
+<p>These tools allow students to interpret questionnaire scores, reaction times, clinical scales, and behavioural data with clarity.</p>
+</div>
+<hr>
+<section id="summary-visual" class="level3">
+<h3 class="anchored" data-anchor-id="summary-visual">Summary Visual</h3>
+<div class="centered-image reveal">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/topic1_summary.png" class="img-fluid figure-img"></p>
+<figcaption>Overview of descriptive statistics.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

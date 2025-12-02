@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Introductory Statistics for Psychology (UZH)"
+  title: "Introductory Statistics for Psychology"
   navbar:
     left:
       - href: index.qmd

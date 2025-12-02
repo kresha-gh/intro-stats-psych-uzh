@@ -3,25 +3,142 @@ title: "Introductory Statistics for Psychology"
 format:
   html:
     toc: false
+    code-fold: false
+    code-tools: false
+    smooth-scroll: true
+    number-sections: false
+execute:
+  echo: false
+  warning: false
+  message: false
 ---
+
+<style>
+/* Wider readable content */
+.quarto-content {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Slight fade-in for a calm, welcoming effect */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.9s ease forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Welcome banner */
+.welcome-box {
+  background: #f8f9fa;
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 40px;
+}
+
+/* Section blocks */
+.section-block {
+  padding: 24px;
+  margin-bottom: 32px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+</style>
+
+
+<div class="fade-in">
 
 # Welcome
 
-This website is an interactive companion for the first-year Statistics in Psychology course at the University of Zurich.
+<div class="welcome-box">
 
-Use the top navigation bar to explore the four core topics:
+**Welcome to *Introductory Statistics for Psychology* at the University of Zurich.**  
+This website is your interactive companion throughout the first-year statistics course.  
+It is designed to guide you step by step through every major topic — from the very first concepts in Descriptive Statistics to the foundations of Correlation, Regression, and ANOVA.
 
-1. Descriptive Statistics  
-2. Probability  
-3. Tests & Confidence Intervals  
-4. Covariance & Correlation  
+Many students enter university with mixed feelings about mathematics or statistics.  
+Some carry difficult experiences from school, others worry about whether they can “handle” numbers.  
+If you feel this way, you are not alone — and this course is built precisely with you in mind.
 
-Each topic page includes:
+Statistics is not about being a “math person.”  
+It is a set of tools that help us understand psychological phenomena — thoughts, emotions, behaviours, well-being, stress, performance — in a structured and meaningful way.  
+It allows us to analyse fragments of human experience and reveal patterns that would otherwise remain invisible.
 
-- **Theory**  
-- **Practice (R examples)**  
-- **Tutor explanations**  
-- **Self-check questions**  
-- **A summary image**
+The goal is not to overwhelm you with formulas, but to build genuine understanding.  
+With time, practice, and clear explanations, even topics that once felt intimidating become manageable, logical, and sometimes even enjoyable.  
+Allow yourself to learn statistics in a new, more intuitive way — step by step, without pressure, and with the confidence that understanding will grow naturally as we proceed.
 
-Start with **Descriptive Statistics**.
+</div>
+
+
+# What This Course Will Teach You
+
+<div class="section-block">
+
+This course is structured into **eight major topics**, each building on the next:
+
+### **1. Descriptive Statistics**  
+How to summarise data: levels of measurement, distributions, measures of centre, variability, and group comparisons. This is the foundation of all statistical thinking.
+
+### **2. Probability**  
+How uncertainty works — the rules of probability, independence, and how we quantify the likelihood of events.
+
+### **3. Tests & Confidence Intervals**  
+How to draw conclusions from data, compare groups, and estimate unknown parameters responsibly.
+
+### **4. Covariance & Correlation**  
+How variables move together — understanding associations and their strengths.
+
+### **5. Simple Linear Regression**  
+How one variable can be used to predict another through a simple statistical model.
+
+### **6. Partial Correlations**  
+How relationships change when we control for additional variables — essential in psychological research.
+
+### **7. Multiple Regression**  
+How several predictors together explain variation in an outcome — the most widely used modelling tool in psychology.
+
+### **8. Analysis of Variance (ANOVA)**  
+How to compare means across multiple groups using variance decomposition.
+
+</div>
+
+
+# How to Use This Website
+
+<div class="section-block">
+
+Each topic page contains three core components:
+
+### **Theory**  
+Clear explanations in natural language, building intuition and conceptual understanding.
+
+### **Practice**  
+Interactive R-based examples with datasets, visualisations, and worked-through descriptive analysis.
+
+### **Summary Visuals**  
+Clean, high-level graphics that condense the most important concepts of the topic into easy-to-review reference images.
+
+Together, these components help you understand statistics not as abstract formulas, but as connected ideas that make sense when explored step by step.
+
+</div>
+
+
+# Begin With Topic 1
+
+<div class="section-block">
+
+If you are visiting for the first time, begin with **Topic 1: Descriptive Statistics**.  
+It provides the basic language of quantitative analysis and the essential tools you will use throughout the rest of the course.
+
+As you move through the topics, you will see how theory, practice, and summary visuals reinforce one another — helping you build confidence not only in performing statistical procedures, but in understanding why they work and when they should be used.
+
+Welcome to the journey.  
+Let’s get started.
+
+</div>
+
+</div>

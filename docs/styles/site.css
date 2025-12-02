@@ -1,162 +1,290 @@
+/* styles/site.css */
+
 /* ---------------------------------------------------------
-   GLOBAL LAYOUT — Wider content area for all pages
+   1. GLOBAL SETUP: Fonts and Color Variables
 ----------------------------------------------------------*/
 
-.page-main .content {
-  max-width: 1200px !important;
-  padding-top: 1.2rem;
+/* Import the 'Inter' font for a clean, modern look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --uzh-blue: #2c82c9; /* Primary UZH blue */
+  --uzh-blue-light: #f4f8fc; /* A very light tint for backgrounds */
+  --text-primary: #212529;
+  --text-secondary: #495057;
+  --border-color: #dee2e6;
+  --header-font: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-primary);
+}
 
 /* ---------------------------------------------------------
-   NAVBAR STYLING — cleaner, more modern
+   2. GLOBAL LAYOUT & TYPOGRAPHY
+----------------------------------------------------------*/
+
+/* Wider content area for all pages */
+.page-main .content {
+  max-width: 1100px !important; 
+  padding-top: 1.5rem;
+}
+
+/* --- Headers --- */
+h1, h2, h3, h4 {
+  font-family: var(--header-font);
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #1a1a1a;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-top: 2.8rem !important;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 1.8rem !important; /* FIX: Corrected '!important' typo here */
+  margin-bottom: 0.5rem;
+}
+
+/* --- Paragraphs & Links --- */
+p, li {
+  font-size: 1.05rem; 
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--uzh-blue);
+  text-decoration: none;
+}
+a:hover {
+  color: #1e5a8c; /* Darker UZH blue */
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------
+   3. NAVBAR & FOOTER
 ----------------------------------------------------------*/
 
 .navbar {
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.07);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  background-color: #ffffff;
 }
 
 .navbar-brand {
   font-weight: 600 !important;
-  font-size: 1.15rem !important;
-  letter-spacing: -0.3px;
+  font-size: 1.2rem !important;
 }
 
 .navbar-nav > li > a,
 .navbar-nav .nav-link {
-  font-size: 0.95rem !important;
-  padding-left: 0.8rem !important;
-  padding-right: 0.8rem !important;
+  font-size: 1rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 
-.navbar .dropdown-menu {
+.dropdown-menu {
+  font-size: 0.95rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Style the footer */
+.page-footer {
   font-size: 0.9rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 
-
 /* ---------------------------------------------------------
-   TYPOGRAPHY — headers, paragraphs, spacing
+   4. HOMEPAGE-SPECIFIC STYLES (index.qmd)
 ----------------------------------------------------------*/
 
-h1, h2, h3, h4 {
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+/* --- Welcome Banner --- */
+.welcome-banner {
+  background-color: var(--uzh-blue-light);
+  border-left: 5px solid var(--uzh-blue);
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  margin-top: 1rem;
+}
+
+.welcome-banner h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  border-bottom: none; /* Override default h-styles */
+  margin-top: 0 !important;
+  margin-bottom: 1rem;
+}
+
+/* --- Topic List (What You Will Learn) --- */
+.topic-list {
+  list-style: none;
+  padding-left: 0;
+  counter-reset: topic-counter;
+}
+
+.topic-list-item {
+  position: relative;
+  padding-left: 55px; /* Space for the number */
+  margin-bottom: 1.8rem;
+  font-size: 1.05rem;
+}
+
+.topic-list-item::before {
+  counter-increment: topic-counter;
+  content: counter(topic-counter);
+  position: absolute;
+  left: 0;
+  top: -3px;
+  font-size: 1.7rem;
   font-weight: 600;
-  letter-spacing: -0.2px;
-  color: #222;
+  color: var(--uzh-blue);
+  background-color: var(--uzh-blue-light);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
-p, li {
-  font-size: 1.02rem;
-  line-height: 1.55;
-  color: #333;
+.topic-list-item h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
 }
 
-h2 {
-  margin-top: 2rem !important;
-  margin-bottom: 0.7rem;
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 0.3rem;
+/* --- "How to Use" Card Grid --- */
+.how-to-card {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: #ffffff;
+  transition: all 0.2s ease-in-out;
 }
 
-h3 {
-  margin-top: 1.4rem !important;
-  margin-bottom: 0.4rem;
+.how-to-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
 }
 
+.how-to-card .card-body {
+  padding: 2rem;
+}
+
+.how-to-card h3 {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-primary);
+  margin-top: 0 !important;
+}
+
+.how-to-card i {
+  font-size: 1.5rem;
+  color: var(--uzh-blue);
+}
+
+/* --- Call-to-Action (CTA) Button --- */
+.cta-section {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.cta-button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  background-color: var(--uzh-blue);
+  border-color: var(--uzh-blue);
+  transition: all 0.2s ease;
+}
+.cta-button:hover {
+  background-color: #1e5a8c;
+  border-color: #1e5a8c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(44, 130, 201, 0.3);
+}
 
 /* ---------------------------------------------------------
-   TABSETS — cleaner tab bar
+   5. OTHER COMPONENT STYLES (from your original CSS)
 ----------------------------------------------------------*/
 
+/* --- Tabsets --- */
 .panel-tabset .nav-tabs .nav-link {
   font-size: 0.95rem;
   font-weight: 500;
   padding: 0.5rem 1rem;
-  border-radius: 0 !important;
+  border-radius: 6px 6px 0 0 !important;
 }
-
 .panel-tabset .nav-tabs .nav-link.active {
   background-color: #ffffff !important;
-  border-bottom: 2px solid #2c82c9 !important; /* UZH blue */
-  color: #2c82c9 !important;
+  border-bottom: 3px solid var(--uzh-blue) !important;
+  color: var(--uzh-blue) !important;
 }
 
-
-/* ---------------------------------------------------------
-   CODE BLOCKS
-   (we show only one “big code block” at bottom of page)
-----------------------------------------------------------*/
-
+/* --- Code Blocks --- */
 pre code {
   font-size: 0.9rem !important;
 }
-
 .code-fold {
   border-radius: 6px !important;
 }
-
 .code-summary {
   font-weight: 600;
-  color: #2c82c9;
+  color: var(--uzh-blue);
 }
 
-
-/* ---------------------------------------------------------
-   DATA TABLES (DT)
-----------------------------------------------------------*/
-
+/* --- Data Tables (DT) --- */
 table.dataTable {
   font-size: 0.9rem !important;
 }
-
-.dataTables_wrapper .dataTables_filter input {
-  border-radius: 4px;
-  border: 1px solid #aaa;
-}
-
-/* Center table header text */
 table.dataTable thead th {
   text-align: center;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
-
-/* ---------------------------------------------------------
-   FIGURES — subtle shadow, spacing
-----------------------------------------------------------*/
-
+/* --- Figures & Images --- */
+figure, img {
+  border-radius: 8px;
+}
 figure {
-  margin-top: 1.3rem;
-  margin-bottom: 1.3rem;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-  border-radius: 6px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-img {
-  border-radius: 6px;
-}
-
-
-/* ---------------------------------------------------------
-   CALLOUT BOXES — cleaner, lighter
-----------------------------------------------------------*/
-
+/* --- Callout Boxes --- */
 .callout {
-  border-left-width: 4px !important;
-  border-radius: 6px !important;
+  border-left-width: 5px !important;
+  border-radius: 8px !important;
+  padding: 1.2rem;
 }
-
 .callout-tip {
   border-left-color: #2ecc71 !important;
 }
-
-
-/* ---------------------------------------------------------
-   FOOTER / SMALL TEXT
-----------------------------------------------------------*/
-
-small, .footer {
-  font-size: 0.8rem !important;
-  color: #777 !important;
+.callout-warning {
+  border-left-color: #f39c12 !important;
 }

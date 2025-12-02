@@ -345,18 +345,18 @@ They train the interpretative skills that every psychologist needs — from desi
 
 ### Simulated Study: Exam Anxiety in First-Year Students
 
-To connect theory with practical application, we will work with one realistic, simulated dataset. Imagine a study where **160 first-year university students** complete a short questionnaire one week before an important exam.
+To see how descriptive statistics work in practice, we use a realistic simulated dataset. Imagine a study in which 160 first-year students complete a short questionnaire one week before an important exam.
 
-For each student we record:
+For each student, we record:
 
-- **id** – anonymous participant number  
-- **group** – whether the student reports *low* or *high* stress about the upcoming exam (nominal)  
-- **gender** – three self-reported categories (nominal)  
-- **exam_anxiety** – a 0–40 score measuring exam-related anxiety (ratio)  
-- **sleep_hours** – average nightly sleep during the week before the exam (ratio)  
-- **satisfaction** – a 1–5 rating of satisfaction with their study situation (ordinal)
+- an anonymous `id`  
+- a self-reported **stress group** (`Low stress` vs. `High stress`)  
+- **gender** in three categories (`Woman`, `Man`, `Diverse`)  
+- an **exam_anxiety** score (0–40 scale; higher = more anxiety)  
+- **sleep_hours**, the average hours of sleep per night in the last week  
+- a 1–5 **satisfaction** rating with their study situation  
 
-The following code simulates this dataset exactly once and prepares all tables and graphs used in this section.
+The following code (hidden in the HTML) simulates this dataset and prepares all tables and plots.
 
 ```{r}
 #| include: false
@@ -374,14 +374,21 @@ n <- 160
 
 dat <- tibble(
     id = 1:n,
-    group = sample(c("Low stress", "High stress"),
-        size = n, replace = TRUE, prob = c(0.55, 0.45)
+    group = sample(
+        c("Low stress", "High stress"),
+        size = n,
+        replace = TRUE,
+        prob = c(0.55, 0.45)
     ),
-    gender = sample(c("Woman", "Man", "Diverse"),
-        size = n, replace = TRUE, prob = c(0.6, 0.35, 0.05)
+    gender = sample(
+        c("Woman", "Man", "Diverse"),
+        size = n,
+        replace = TRUE,
+        prob = c(0.60, 0.35, 0.05)
     )
 )
 
+# Sleep: slightly lower and more variable in the high-stress group
 dat <- dat |>
     mutate(
         sleep_hours = rnorm(
@@ -389,9 +396,11 @@ dat <- dat |>
             mean = ifelse(group == "High stress", 6.2, 7.1),
             sd   = 1.1
         ),
-        sleep_hours = pmin(pmax(sleep_hours, 3), 10)
+        sleep_hours = pmin(pmax(sleep_hours, 3), 10),
+        sleep_hours = round(sleep_hours, 1)
     )
 
+# Exam anxiety: higher on average in the high-stress group
 dat <- dat |>
     mutate(
         exam_anxiety = rnorm(
@@ -399,9 +408,11 @@ dat <- dat |>
             mean = ifelse(group == "High stress", 24, 18),
             sd   = 5
         ),
-        exam_anxiety = round(pmin(pmax(exam_anxiety, 0), 40))
+        exam_anxiety = pmin(pmax(exam_anxiety, 0), 40),
+        exam_anxiety = round(exam_anxiety)
     )
 
+# Satisfaction: lower when anxiety is higher (plus some noise)
 z_anx <- scale(dat$exam_anxiety)[, 1]
 dat <- dat |>
     mutate(
@@ -410,31 +421,39 @@ dat <- dat |>
     ) |>
     select(-satisfaction_latent)
 
-# Frequencies
+# Frequency tables
 tab_group <- dat |>
     count(group, name = "n") |>
-    mutate(prop = round(100 * n / sum(n), 1))
+    mutate(
+        prop = 100 * n / sum(n)
+    )
 
 tab_gender <- dat |>
     count(gender, name = "n") |>
-    mutate(prop = round(100 * n / sum(n), 1))
+    mutate(
+        prop = 100 * n / sum(n)
+    )
 
 tab_satisfaction <- dat |>
     count(satisfaction, name = "n") |>
-    mutate(prop = round(100 * n / sum(n), 1))
-
-# Descriptives
-overall_exam <- dat |>
-    summarise(
-        n = n(),
-        mean = mean(exam_anxiety),
-        median = median(exam_anxiety),
-        sd = sd(exam_anxiety),
-        IQR = IQR(exam_anxiety),
-        min = min(exam_anxiety),
-        max = max(exam_anxiety)
+    arrange(satisfaction) |>
+    mutate(
+        prop = 100 * n / sum(n)
     )
 
+# Overall descriptives for exam anxiety
+overall_exam <- dat |>
+    summarise(
+        n      = n(),
+        mean   = mean(exam_anxiety),
+        median = median(exam_anxiety),
+        sd     = sd(exam_anxiety),
+        IQR    = IQR(exam_anxiety),
+        min    = min(exam_anxiety),
+        max    = max(exam_anxiety)
+    )
+
+# Group-wise descriptives
 exam_by_group <- dat |>
     group_by(group) |>
     summarise(
@@ -446,177 +465,199 @@ exam_by_group <- dat |>
         .groups = "drop"
     )
 
-# Plots
+# Histogram of exam anxiety
 p_hist_exam <- ggplot(dat, aes(x = exam_anxiety)) +
     geom_histogram(
-        bins = 12,
-        color = "white",
-        fill = "#f39c12"
+        binwidth = 2,
+        boundary = 0,
+        color    = "white",
+        fill     = "#f39c12"
+    ) +
+    scale_x_continuous(
+        breaks = seq(0, 40, by = 5),
+        limits = c(0, 40)
     ) +
     labs(
-        title = "Distribution of Exam Anxiety Scores",
-        x = "Exam anxiety score (0–40)",
-        y = "Count"
+        title    = "Exam Anxiety in First-Year Students",
+        subtitle = "Distribution of total scores on a 0–40 scale",
+        x        = "Exam anxiety score (0–40)",
+        y        = "Number of students"
     ) +
-    theme_minimal(base_size = 14)
+    theme_minimal(base_size = 13) +
+    theme(
+        plot.title = element_text(face = "bold"),
+        plot.subtitle = element_text(color = "grey30"),
+        panel.grid.minor = element_blank()
+    )
 
+# Boxplot of exam anxiety by stress group
 p_box_exam <- ggplot(dat, aes(x = group, y = exam_anxiety, fill = group)) +
-    geom_boxplot(alpha = 0.85, width = 0.6) +
-    scale_fill_manual(values = c("#2ecc71", "#e74c3c")) +
-    labs(
-        title = "Exam Anxiety by Stress Group",
-        x = "",
-        y = "Exam anxiety score (0–40)"
+    geom_boxplot(
+        alpha         = 0.9,
+        width         = 0.55,
+        outlier.alpha = 0.9,
+        outlier.size  = 2.2
     ) +
-    theme_minimal(base_size = 14) +
-    theme(legend.position = "none")
+    scale_fill_manual(
+        values = c("Low stress" = "#2ecc71", "High stress" = "#e74c3c")
+    ) +
+    scale_y_continuous(
+        breaks = seq(0, 40, by = 5),
+        limits = c(0, 40)
+    ) +
+    labs(
+        title    = "Exam Anxiety by Self-Reported Stress Group",
+        subtitle = "Higher anxiety and greater variability in the high-stress group",
+        x        = "",
+        y        = "Exam anxiety score (0–40)"
+    ) +
+    theme_minimal(base_size = 13) +
+    theme(
+        legend.position  = "none",
+        plot.title       = element_text(face = "bold"),
+        plot.subtitle    = element_text(color = "grey30"),
+        panel.grid.minor = element_blank()
+    )
 ```
 
----
+**Step 1: Exploring the Raw Data**
 
-### Getting to Know the Dataset
-
-Below is the full dataset in an interactive table.
-You can scroll, sort, and search entries.
+Before computing any descriptive statistics, it is important to look at the raw data. The table below shows the full dataset. You can sort columns, search for specific values, and scroll through all 160 students.
 
 ```{r}
 datatable(
     dat,
     options = list(pageLength = 10),
-    rownames = FALSE
+    rownames = FALSE,
+    caption = "Simulated dataset: exam anxiety, sleep, satisfaction and background variables for 160 students."
 )
 ```
 
-This first step helps you check:
+This first inspection helps you check whether the data look plausible. Sleep values concentrate between 3 and 10 hours and are stored with one decimal place. Exam anxiety scores lie between 0 and 40 and are rounded to whole numbers. Satisfaction ratings run from 1 to 5. The categories for stress group and gender appear with reasonable frequencies. If anything looked obviously wrong here, we would correct it before moving on.
 
-* values look realistic
-* sleep hours and anxiety fall in expected ranges
-* gender and stress groups are split as expected
-* the dataset contains no obvious errors before summarizing
+**Step 2: Describing Nominal Variables – Stress Group and Gender**
 
----
-
-### Nominal Variables: Group and Gender
-
-Nominal variables describe categories, not quantities.
-We summarise them using frequencies and percentages.
+Stress group and gender are nominal variables: they divide students into categories without implying any numerical order. We describe them with counts and percentages.
 
 ```{r}
 tab_group |>
-    mutate(prop = paste0(prop, " %")) |>
+    mutate(
+        prop = sprintf("%.1f%%", prop)
+    ) |>
     kable(
-        caption = "Distribution of Students Across Stress Groups",
-        align = c("l", "r", "r")
+        caption   = "Distribution of students across self-reported stress groups.",
+        col.names = c("Stress group", "n", "%"),
+        align     = c("l", "r", "r")
     )
 ```
 
 ```{r}
 tab_gender |>
-    mutate(prop = paste0(prop, " %")) |>
+    mutate(
+        prop = sprintf("%.1f%%", prop)
+    ) |>
     kable(
-        caption = "Distribution of Students Across Gender Categories",
-        align = c("l", "r", "r")
+        caption   = "Distribution of students across gender categories.",
+        col.names = c("Gender", "n", "%"),
+        align     = c("l", "r", "r")
     )
 ```
 
----
+These tables show how students are distributed across groups. Slightly more students fall into the low-stress group than the high-stress group, and gender categories are represented with proportions that look realistic for an introductory psychology cohort. At this stage we are not interpreting differences; we are simply describing who is in our sample.
 
-### Ordinal Variable: Satisfaction
+**Step 3: Describing an Ordinal Variable – Study Satisfaction**
 
-Satisfaction is an ordered 1–5 rating. We describe ordinal variables with frequencies, because the spacing between categories is not assumed equal.
+Satisfaction is measured on a 1–5 scale and is therefore ordinal: larger numbers mean higher satisfaction, but the distances between adjacent categories are not assumed to be equal. We again use counts and percentages.
 
 ```{r}
 tab_satisfaction |>
-    mutate(prop = paste0(prop, " %")) |>
+    mutate(
+        prop = sprintf("%.1f%%", prop)
+    ) |>
     kable(
-        caption = "Satisfaction Ratings (1 = dissatisfied, 5 = very satisfied)",
-        align = c("c", "r", "r")
+        caption   = "Satisfaction ratings (1 = very dissatisfied, 5 = very satisfied).",
+        col.names = c("Satisfaction", "n", "%"),
+        align     = c("c", "r", "r")
     )
 ```
 
----
+From this table you can see whether most students are satisfied, neutral, or dissatisfied with their study situation. A distribution concentrated on the higher values suggests that, despite exam stress, many students feel reasonably positive about their studies. A more balanced or lower distribution would indicate a different mood in the group.
 
-### Exam Anxiety: Describing Center and Spread
+**Step 4: Overall Descriptives for Exam Anxiety**
 
-Now we summarise the main continuous variable.
+Now we turn to exam_anxiety, a ratio-level variable where it makes sense to compute means and standard deviations. We first describe anxiety for the entire sample.
 
 ```{r}
 overall_exam |>
+    mutate(
+        mean   = round(mean, 1),
+        median = round(median, 1),
+        sd     = round(sd, 1),
+        IQR    = round(IQR, 1)
+    ) |>
     kable(
-        caption = "Overall Descriptive Statistics for Exam Anxiety",
-        digits = 2,
-        col.names = c("n", "Mean", "Median", "SD", "IQR", "Min", "Max")
+        caption   = "Overall descriptive statistics for exam anxiety (0–40 scale).",
+        col.names = c("n", "Mean", "Median", "SD", "IQR", "Min", "Max"),
+        align     = c("r", "r", "r", "r", "r", "r", "r")
     )
 ```
 
-You can think of:
+The mean and median indicate what a typical level of exam anxiety looks like in this group. The standard deviation and interquartile range describe how much students differ from one another: a larger SD would mean that some students are much calmer or much more anxious than the average. The minimum and maximum show the range of anxiety we actually observed, which helps us see whether scores span the full scale or cluster in a narrower band.
 
-* **mean / median** → what is typical
-* **SD / IQR** → how much students differ
-* **min / max** → full extent of variation
+**Step 5: Comparing Anxiety Between Stress Groups**
 
----
-
-### Anxiety by Stress Group
-
-Group comparisons help you see whether descriptive differences appear before formal tests.
+Because students rated themselves as low or high stress, it is natural to ask whether their measured exam anxiety reflects this subjective classification. We start with group-wise descriptive statistics.
 
 ```{r}
 exam_by_group |>
+    mutate(
+        mean   = round(mean, 1),
+        median = round(median, 1),
+        sd     = round(sd, 1),
+        IQR    = round(IQR, 1)
+    ) |>
     kable(
-        caption = "Exam Anxiety by Stress Group",
-        digits = 2,
-        col.names = c("Group", "n", "Mean", "Median", "SD", "IQR")
+        caption   = "Exam anxiety by self-reported stress group.",
+        col.names = c("Stress group", "n", "Mean", "Median", "SD", "IQR"),
+        align     = c("l", "r", "r", "r", "r", "r")
     )
 ```
 
----
+If both the mean and the median are clearly higher in the high-stress group, this suggests that students who feel stressed about the exam do in fact report more anxiety on the questionnaire. If the standard deviation and IQR are also larger, it indicates that the high-stress group is more diverse, containing both moderately and extremely anxious individuals.
 
-### Histogram of Exam Anxiety
+This descriptive comparison already gives a strong impression of group differences, even before any hypothesis test is carried out.
+
+**Step 6: Visualising the Distribution of Exam Anxiety**
+
+Numerical summaries are helpful, but they cannot show everything. A histogram gives a direct view of the shape of the distribution.
 
 ```{r}
 ggplotly(p_hist_exam)
 ```
 
+The histogram shows how many students fall into each range of anxiety scores. In this simulated dataset, most students cluster around moderate values in the middle of the 0–40 scale. Scores taper off toward the extremes, meaning that very low and very high anxiety are relatively rare.
 
+The overall shape is fairly symmetric, without a long tail to one side. This pattern suggests that the mean and median are similar and that the distribution does not contain strong skewness. Psychologically, it matches the idea that many students feel noticeable but not overwhelming exam anxiety, with only a few at either extreme.
 
-**Interpretation of the Histogram: Understanding the Distribution of Exam Anxiety**
+**Step 7: Visualising Group Differences with a Boxplot**
 
-The histogram gives us the first in-depth look at how exam anxiety is distributed across all 160 students. The overall shape is roughly bell-shaped, meaning most students cluster around a moderate anxiety level. The tallest bars fall between 18 and 24 points, indicating that this range represents the most common anxiety scores in the sample. Very few students score extremely low (close to 0–10) or extremely high (above 30), which suggests that extreme anxiety responses are relatively rare in this cohort.
-
-The distribution appears fairly symmetric, with no strong skew toward low or high values. That tells us that the mean and median should be relatively close to one another and reflect the “typical” student quite well. The slight tapering at both ends indicates that while variation exists, it is centered around a clear middle region rather than spread evenly across all possible values.
-
-From a psychological perspective, this shape makes intuitive sense. Most students experience some level of exam anxiety, but only a small subset are completely calm or strongly overwhelmed. The histogram therefore provides a meaningful first insight: the majority of students fall into a moderate-anxiety zone, with only a handful showing exceptionally low or high levels.
-
-### Boxplot: Between-Group Comparison
+To compare groups visually, boxplots are very effective. They summarise the centre, spread, and potential outliers for each group side by side.
 
 ```{r}
 ggplotly(p_box_exam)
 ```
 
+In the boxplot, each box represents the central 50% of anxiety scores in one group, with the horizontal line indicating the median. In this example, the high-stress group’s box is clearly higher on the vertical axis, showing that the typical high-stress student reports more anxiety than the typical low-stress student.
 
+The height of each box (the interquartile range) and the length of the whiskers indicate how much variability there is. If the high-stress box is taller, it means that anxiety scores in this group are spread over a wider range. Occasional points outside the whiskers represent students whose scores are unusually low or unusually high compared to their group peers.
 
-**Interpretation of the Boxplot: Anxiety Differences Between Stress Groups**
+Together with the table of group-wise descriptives, the boxplot gives a rich descriptive picture: not only do high-stress students tend to be more anxious, they also differ more strongly from one another.
 
-The boxplot visually compares exam anxiety between the Low stress and High stress groups, and the pattern is immediately clear. Students who rated themselves as High stress show substantially higher exam anxiety on average. This is reflected in the position of the median: the horizontal line inside the green box is noticeably higher than the one inside the red box. In other words, the “typical” high-stress student is more anxious than the “typical” low-stress student.
+**Summary of Practice Concepts**
 
-The spread (height of each box) also tells an important story. The High stress group has a somewhat larger interquartile range (IQR), meaning that their anxiety levels are not only higher on average but also more variable. Students in this group differ from each other more strongly – some report moderately elevated anxiety, others report very high anxiety levels.
+In this Practice section, you have seen how descriptive statistics translate from theory to a concrete dataset. You explored nominal variables via frequency tables, described an ordinal satisfaction rating using counts and percentages, summarised a ratio-level anxiety score with means, medians, standard deviations, and interquartile ranges, and used histograms and boxplots to visualise both the overall distribution and differences between groups.
 
-The whiskers and occasional outliers show that both groups include individuals whose scores fall outside the central range, but the high-stress group tends to show higher extreme values. The low-stress group, by contrast, has a lower median, a narrower box, and a lower upper whisker, suggesting that students in this group are both less anxious and more consistent in their responses.
-
-Altogether, the boxplot offers a strong descriptive indication that the subjective stress grouping meaningfully corresponds to actual exam anxiety levels. Before running any statistical tests, this visualisation already reveals a clear and psychologically plausible relationship: students who feel stressed about the exam tend to be more anxious when measured objectively.
-
-### Summary of Practice Concepts
-
-In this Practice section, you have seen:
-
-* how to explore **nominal** variables via counts
-* how to summarise **ordinal** variables via frequency tables
-* how to describe **ratio** variables using means, medians, SDs, and IQRs
-* how to use **histograms** for distribution shape
-* how to use **boxplots** for comparing groups
-
-These tools form the foundation for everything that follows in probability, confidence intervals, hypothesis testing, correlation, and regression.
+These skills are the everyday tools of data description in psychology. Once you are comfortable with them, later topics—such as probability, confidence intervals, hypothesis testing, correlation, and regression—will feel more grounded, because they build directly on the same ideas you have just applied here.
 
 </div>
 
@@ -626,13 +667,17 @@ These tools form the foundation for everything that follows in probability, conf
 
 <div class="card-block reveal">
 
-Descriptive statistics form the foundation of all quantitative reasoning in psychology. Before any hypothesis can be tested or any model can be built, we must first understand what our data look like. This begins with recognising the different levels of measurement and how they determine what kinds of statistics are meaningful. Nominal variables such as gender or stress group are categorical and can only be summarised using counts and percentages; computing averages for them would be conceptually meaningless because the categories have no inherent numerical distance. Ordinal variables, like satisfaction ratings, preserve an order but not equal spacing, which is why medians and frequency distributions are preferred over means. For interval and ratio variables—such as exam anxiety or hours of sleep—we can meaningfully compute means, standard deviations, and other quantitative summaries, because the underlying scale reflects consistent numerical differences.
+**Summary of Descriptive Statistics**
 
-With measurement foundations in place, descriptive statistics help us capture the essential characteristics of a dataset. Measures of central tendency (mean, median) indicate where most observations tend to lie; measures of variability (IQR, standard deviation) show how widely individuals differ from one another. These numerical summaries are complemented by visual tools: histograms reveal the overall shape of a distribution, including whether scores are symmetric, skewed, unimodal, or spread unevenly; boxplots illustrate the median, quartiles, and possible outliers, and offer a straightforward way to compare groups side by side. When we combine these numerical and graphical summaries, we gain a far more complete understanding of our data than any single measure could provide.
+Descriptive statistics form the foundation of all quantitative reasoning in psychology. Before any hypothesis can be tested or any model can be fitted, the first step is to ask what the data actually look like. This requires recognising what type of variable we are dealing with, choosing descriptive measures that match that level of measurement, and combining numerical summaries with informative visualisations. When done well, this initial description already answers many important questions and prevents serious misinterpretations.
 
-In the practical example, we saw how these concepts come together in a real dataset. Exam anxiety scores exhibited a roughly bell-shaped distribution, illustrating how most students fall into a moderate range of anxiety while only a few show extremely high or low values. Nominal variables such as self-reported stress group and gender were appropriately summarised using frequencies and percentages. Ordinal satisfaction ratings revealed how students’ general study experience varies, without assuming equal spacing between response options. Comparing anxiety levels between low- and high-stress groups demonstrated how descriptive statistics reveal meaningful group differences even before formal statistical tests are applied. Higher medians and a wider spread in the high-stress group illustrated both elevated anxiety and greater variability among those students.
+Understanding levels of measurement is central. Nominal variables, such as categories of stress group or types of therapy, can be summarised with counts and percentages but not with means or standard deviations. Ordinal variables, such as satisfaction ratings, preserve an order but not equal spacing between categories, which is why medians and distributions over categories are more appropriate than precise arithmetic interpretations. Interval and ratio variables, such as exam anxiety scores or hours of sleep, allow meaningful calculations of means, standard deviations, and correlations, because the underlying scale has equal steps and, in the ratio case, a meaningful zero.
 
-Taken together, the descriptive tools presented in this chapter help students build an intuitive and technically correct understanding of psychological data. They teach us how to accurately summarise what we have observed, how to distinguish between different types of variables, how to describe distributions clearly, and how to identify patterns that might inspire further analysis. By mastering descriptive statistics, students lay the groundwork for all subsequent topics in the course—from probability to confidence intervals, hypothesis testing, regression, and beyond. Descriptive statistics are not merely introductory; they are the essential first step in every scientific investigation, and they shape the clarity and validity of all conclusions drawn from psychological research.
+Measures of central tendency and variability then provide a concise description of where values tend to lie and how much individuals differ from one another. The mean and median locate the centre of a distribution, while the interquartile range and the standard deviation describe its spread. Simple as they are, these summaries are invaluable, especially when they are interpreted in combination rather than in isolation. A large standard deviation, for example, changes the meaning of a given mean: the same average can represent very different situations depending on whether most individuals are similar or highly diverse.
+
+Visualisations add a further layer of insight. Histograms reveal the overall shape of a distribution, highlight skewness and potential clusters, and make it easier to spot unusual patterns. Boxplots summarise centre and spread in a compact way and make comparisons across groups immediately visible. In the exam anxiety example, a histogram showed a roughly bell-shaped distribution, while boxplots made clear that the self-reported high-stress group had both higher typical anxiety and greater variability.
+
+Taken together, the descriptive tools introduced in this topic help build a deep and intuitive understanding of psychological data. They allow us to summarise observations accurately, to distinguish between different kinds of variables, to describe distributions clearly, and to identify patterns that may motivate further analysis. By mastering descriptive statistics, you lay the groundwork for all subsequent topics in statistics. Probability, confidence intervals, hypothesis testing, correlation, regression, and ANOVA will all make more sense once the descriptive foundations are solid. Descriptive statistics are not just an introduction; they are the first essential step in every serious analysis of psychological data.
 
 </div>
 

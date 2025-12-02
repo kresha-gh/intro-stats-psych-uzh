@@ -1,9 +1,13 @@
+# _quarto.yml
+# This is the main project configuration file.
+
 project:
   type: website
   output-dir: docs
 
 website:
   title: "Introductory Statistics for Psychology"
+  
   navbar:
     left:
       - href: index.qmd
@@ -26,12 +30,22 @@ website:
             text: "7. Multiple Regression"
           - href: topic8_anova.qmd
             text: "8. Analysis of Variance (ANOVA)"
+            
+  page-footer:
+    left: "© 2025 Psycho Stats Lab"
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmo
+    
+    # FIX: These now live directly under 'html:', not inside 'theme:'
+    mainfont: "Inter"
+    sansfont: "Inter"
+    
     toc: true
     toc-depth: 3
     number-sections: false
     smooth-scroll: true
     css: styles/site.css
+    icons: bootstrap

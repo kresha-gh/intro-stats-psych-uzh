@@ -75,8 +75,7 @@ h1, h2, h3 {
 
 Whenever you collect data — questionnaire responses, reaction times, ratings of emotion, stress scores, memory accuracy — the raw numbers rarely speak for themselves. A column of values may contain important information, but without structure it is impossible to know what story the data tell.
 
-Descriptive statistics provide that first layer of structure.  
-They help you understand **what the numbers mean** before you attempt any interpretation or run any formal test. If you think of statistical analysis as building a house, descriptive statistics are the foundation. Without them, the entire building becomes unstable.
+Descriptive statistics provide that first layer of structure. They help you understand **what the numbers mean** before you attempt any interpretation or run any formal test. If you think of statistical analysis as building a house, descriptive statistics are the foundation. Without them, the entire building becomes unstable.
 
 When students first enter psychology, they often imagine statistics as formulas or tests. But real statistical thinking begins earlier: with the ability to summarise, describe, and interpret data in everyday language. You learn to look at numbers and see patterns, not noise. This skill is essential — not only for future topics like regression, correlation, or ANOVA, but for scientific reasoning more broadly.
 
@@ -102,11 +101,9 @@ Good researchers always begin with descriptive statistics because this initial u
 
 # Understanding Levels of Measurement: The Foundation for Everything Else
 
-Before you summarise a variable, you must understand **what kind of variable it is**.  
-This is not a technical detail — it determines which statistics are meaningful and which would be misleading or even wrong.
+Before you summarise a variable, you must understand **what kind of variable it is**. This is not a technical detail — it determines which statistics are meaningful and which would be misleading or even wrong.
 
-Think of it this way:  
-you cannot treat colours, temperature, and reaction times as if they were the same kind of information. Different data types support different operations.
+Think of it this way: You cannot treat colours, temperature, and reaction times as if they were the same kind of information. Different data types support different operations.
 
 We distinguish four levels of measurement: **nominal, ordinal, interval, and ratio**. Below, each is explained in depth, with psychological examples.
 
@@ -115,11 +112,11 @@ We distinguish four levels of measurement: **nominal, ordinal, interval, and rat
 ## Nominal Level  
 Nominal variables contain **categories that have no inherent order** — they simply label groups.
 
-Examples include:  
+Examples include:
 
 - therapy type (CBT, ACT, psychodynamic)  
 - coping style categories  
-- handedness  
+- handedness
 - type of emotion being expressed (anger, joy, fear)  
 - diagnosis categories  
 
@@ -134,9 +131,7 @@ We can meaningfully compute:
 ### What is *not* meaningful?  
 An **average** would be meaningless because averaging categories implies numerical distance where none exists.
 
-If three participants prefer “CBT,” “ACT,” and “psychodynamic,” the “average” of these three labels has no psychological interpretation.  
-There is no quantity we can interpolate between “CBT” and “ACT.”  
-A category is a name, not a number.
+If three participants prefer “CBT,” “ACT,” and “psychodynamic,” the “average” of these three labels has no psychological interpretation. There is no quantity we can interpolate between “CBT” and “ACT.” A category is a name, not a number.
 
 This is why nominal data are never summarised with means, medians, or SDs. They do not represent numerical magnitude.
 
@@ -154,8 +149,7 @@ Examples:
 
 These variables tell us *relative order* — who has more or less of something — but they do **not guarantee equal distance** between levels.
 
-A jump from “moderate” to “severe” does not necessarily equal the jump from “mild” to “moderate.”  
-Similarly, the psychological distance between “agree” and “strongly agree” might not match the distance between “neutral” and “agree.”
+A jump from “moderate” to “severe” does not necessarily equal the jump from “mild” to “moderate.” Similarly, the psychological distance between “agree” and “strongly agree” might not match the distance between “neutral” and “agree.”
 
 ### What summaries make sense?  
 
@@ -165,8 +159,7 @@ Similarly, the psychological distance between “agree” and “strongly agree�
 - ordered bar charts  
 
 ### What about means?  
-Psychologists often report means for Likert scales, but this is a matter of convention rather than strict mathematics.  
-The mean can be used **if** you interpret it cautiously and understand its limitations.
+Psychologists often report means for Likert scales, but this is a matter of convention rather than strict mathematics. The mean can be used **if** you interpret it cautiously and understand its limitations.
 
 ---
 
@@ -178,8 +171,7 @@ Interval variables have:
 
 A classical example is temperature measured in Celsius or Fahrenheit.
 
-In some psychological contexts, variables behave *approximately* interval-like, even if not perfectly:  
-for instance, a 0–100 scale measuring subjective well-being, where each point is designed to represent an equal step.
+In some psychological contexts, variables behave *approximately* interval-like, even if not perfectly: for instance, a 0–100 scale measuring subjective well-being, where each point is designed to represent an equal step.
 
 Because spacing is assumed to be equal, we can compute:
 
@@ -189,8 +181,7 @@ Because spacing is assumed to be equal, we can compute:
 - z-scores  
 
 ### Why does “no true zero” matter?  
-Because without a true zero, ratios become meaningless.  
-For example, 20°C is not “twice as warm” as 10°C — the zero point is arbitrary.
+Because without a true zero, ratios become meaningless. For example, 20°C is not “twice as warm” as 10°C — the zero point is arbitrary.
 
 Thus, interval data support many operations, but not ratio statements.
 
@@ -198,7 +189,8 @@ Thus, interval data support many operations, but not ratio statements.
 
 ## Ratio Level  
 Ratio variables are the most informative type. They have:
-1. equal spacing, and  
+
+1. **equal spacing**, and  
 2. a **meaningful zero** that represents the total absence of the quantity.
 
 Examples include:  
@@ -210,8 +202,8 @@ Examples include:
 
 Because zero means “none,” ratios become meaningful:
 
-- A reaction time of 600 ms is twice as long as 300 ms.  
-- A score of 20 symptoms represents twice the number of symptoms as a score of 10.
+- A reaction time of 600 ms is **twice as long** as 300 ms.  
+- A score of 20 symptoms represents **twice the number of symptoms** as a score of 10.
 
 Ratio variables allow all descriptive measures:
 
@@ -238,20 +230,16 @@ Every distribution has a central point where most values cluster. Understanding 
 We use three main measures: **mean, median, and mode**.
 
 ### The Mean  
-The mean is what people often call “the average.”  
-It adds all values and divides by the number of observations.
+The mean is what people often call “the average.” It adds all values and divides by the number of observations.
 
 It uses *all* information in the dataset, which makes it powerful — but also vulnerable.
 
-If one individual reports an extremely high stress score, the mean shifts noticeably.  
-This makes the mean **sensitive to outliers**.
+If one individual reports an extremely high stress score, the mean shifts noticeably. This makes the mean **sensitive to outliers**.
 
 ### The Median  
-The median is the middle value once data are ordered.  
-Half the values lie below it and half above.
+The median is the middle value once data are ordered. Half the values lie below it and half above.
 
-It is robust against outliers.  
-If you add one extremely high value, the median remains nearly unchanged.
+It is robust against outliers. If you add one extremely high value, the median remains nearly unchanged.
 
 This often makes the median more informative for skewed psychological variables such as stress, rumination, sadness, or reaction times.
 
@@ -268,8 +256,7 @@ Useful when:
 
 # Variability: How Much People Differ
 
-Understanding the centre is not enough.  
-Two groups might have the same typical value but differ dramatically in how spread out their scores are.
+Understanding the centre is not enough. Two groups might have the same typical value but differ dramatically in how spread out their scores are.
 
 Variability tells you:
 
@@ -278,17 +265,16 @@ Variability tells you:
 - whether groups are consistent or mixed.
 
 ### Range  
-Max minus min.  
-Simple but heavily distorted by outliers.
+Max minus min. Simple but heavily distorted by outliers.
 
 ### Interquartile Range (IQR)  
-Captures the spread of the **middle 50%**.  
-Resistant to extreme scores.
+Captures the spread of the **middle 50%**. Resistant to extreme scores.
 
 ### Standard Deviation (SD)  
-Shows the average distance of each value from the mean.  
-If SD is small → participants are similar.  
-If SD is large → a lot of diversity.
+Shows the average distance of each value from the mean.
+
+- If SD is small → participants are similar.  
+- If SD is large → a lot of diversity.
 
 SD is crucial in psychology because it helps describe how strongly people differ in the very traits we study.
 
@@ -296,8 +282,7 @@ SD is crucial in psychology because it helps describe how strongly people differ
 
 # Shape of a Distribution: The Story Behind the Numbers
 
-The centre and variability are just two elements.  
-The *shape* of the distribution completes the picture.
+The centre and variability are just two elements. The *shape* of the distribution completes the picture.
 
 A distribution can be:
 
@@ -320,8 +305,7 @@ Interpreting shapes makes you a better thinker because you learn to see patterns
 
 # Comparing Groups Descriptively
 
-Much of psychology involves comparing groups:  
-people in different conditions, treatments, environments, or roles.
+Much of psychology involves comparing groups: people in different conditions, treatments, environments, or roles.
 
 Descriptive comparisons help you see:
 
@@ -336,8 +320,7 @@ These descriptive insights guide hypotheses, interpretation, and responsible sci
 
 # Why All of This Matters for Your Future in Statistics
 
-Descriptive statistics may seem simple at first glance, but they are deeply foundational.  
-Every later topic — probability, confidence intervals, regression, ANOVA, correlation — relies on concepts introduced here.
+Descriptive statistics may seem simple at first glance, but they are deeply foundational. Every later topic — probability, confidence intervals, regression, ANOVA, correlation — relies on concepts introduced here.
 
 If you understand:
 
@@ -540,8 +523,7 @@ tab_gender |>
 
 ### Ordinal Variable: Satisfaction
 
-Satisfaction is an ordered 1–5 rating.
-We describe ordinal variables with frequencies, because the spacing between categories is not assumed equal.
+Satisfaction is an ordered 1–5 rating. We describe ordinal variables with frequencies, because the spacing between categories is not assumed equal.
 
 ```{r}
 tab_satisfaction |>
@@ -656,26 +638,30 @@ Taken together, the descriptive tools presented in this chapter help students bu
 
 ---
 
-### Summary Visuals: The Four Pillars of Descriptive Statistics
+### Summary Visuals
 
+<!-- Levels of Measurement -->
 <div class="centered-image reveal" style="margin-bottom: 40px;">
-  <img src="images/pillar_center.png" alt="Center (Mean & Median)" style="max-width: 80%; border-radius: 12px;">
-  <p><em>Pillar 1 — Center (Mean & Median)</em></p>
+  <img src="images/summary_levels.png" 
+       alt="Levels of Measurement overview (Nominal, Ordinal, Interval, Ratio)" 
+       style="max-width: 85%; border-radius: 12px;">
+  <p><em>Overview of Levels of Measurement: Nominal, Ordinal, Interval, Ratio</em></p>
 </div>
 
+<!-- Central Tendency -->
 <div class="centered-image reveal" style="margin-bottom: 40px;">
-  <img src="images/pillar_spread.png" alt="Spread (IQR & SD)" style="max-width: 80%; border-radius: 12px;">
-  <p><em>Pillar 2 — Spread (IQR & SD)</em></p>
+  <img src="images/summary_center.png" 
+       alt="Central Tendency overview (Mean, Median, Mode)" 
+       style="max-width: 85%; border-radius: 12px;">
+  <p><em>Measures of Central Tendency: Mean, Median, Mode</em></p>
 </div>
 
+<!-- Variability -->
 <div class="centered-image reveal" style="margin-bottom: 40px;">
-  <img src="images/pillar_shape.png" alt="Shape of Distribution" style="max-width: 80%; border-radius: 12px;">
-  <p><em>Pillar 3 — Shape of the Distribution</em></p>
-</div>
-
-<div class="centered-image reveal" style="margin-bottom: 40px;">
-  <img src="images/pillar_comparison.png" alt="Group Comparison" style="max-width: 80%; border-radius: 12px;">
-  <p><em>Pillar 4 — Group Comparison</em></p>
+  <img src="images/summary_variability.png" 
+       alt="Variability overview (Range, IQR, Variance, Standard Deviation)" 
+       style="max-width: 85%; border-radius: 12px;">
+  <p><em>Measures of Variability: Range, IQR, Variance, Standard Deviation</em></p>
 </div>
 
 :::

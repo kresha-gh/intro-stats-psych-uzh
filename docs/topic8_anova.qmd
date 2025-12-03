@@ -1,8 +1,0 @@
----
-title: "Analysis of Variance (ANOVA)"
-format:
-  html:
-    toc: true
----
-
-Content will be added.

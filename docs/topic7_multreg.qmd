@@ -1,8 +1,0 @@
----
-title: "Multiple Linear Regression"
-format:
-  html:
-    toc: true
----
-
-Content will be added.
